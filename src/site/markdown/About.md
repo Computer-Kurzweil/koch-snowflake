@@ -1,33 +1,45 @@
 # Koch Snowflake
 
-**TODO Change Slogan: Artificial Life Simulation of Bacteria Motion depending on DNA**
+**kochsnowflake Slogan**
 
-## Abstract
-Green food appears in a simulatedEvolutionModel with red moving cells. These cells eat the food if it is on their position.
-Movement of the cells depends on random and their DNA. A fit cell moves around and eats enough to reproduce.
-Reproduction is done by splitting the cell and randomly changing the DNA of the two new Cells.
-If a cell doesn't eat enough, it will first stand still and after a while it dies.
+## Abstract: kochsnowflake
 
 
-## Run the Desktop Application
+## More
+* [https://en.wikipedia.org/wiki/Mandelbrot_set](https://en.wikipedia.org/wiki/Mandelbrot_set)
+* [https://en.wikipedia.org/wiki/Julia_set](https://en.wikipedia.org/wiki/Julia_set)
+* [https://en.wikipedia.org/wiki/Turing_machine](https://en.wikipedia.org/wiki/Turing_machine)
+
+## Screenshots
+
+### Running around the Edge of the Mandelbrot Set
+
+![Running around the Edge of the Mandelbrot Set](img/screen01.png)
+
+### Running around the Edge of the Mandelbrot Set
+
+![Running around the Edge of the Mandelbrot Set](img/screen02.png)
+
+### Computing the Area outside the Mandelbrot Set
+
+![Computing the Area outside the Mandelbrot Set](img/screen03.png)
+
+### Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set
+
+![Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set](img/julia01.png)
+
+### Clicked  on another Point on the Edge of Mandelbrot Set: The Julia Set
+
+![Clicked on another Point on the Edge of Mandelbrot Set: The Julia Set](img/julia02.png)
+
+
+### Git Repository
+* [https://github.com/Computer-Kurzweil/kochsnowflake](https://github.com/Computer-Kurzweil/kochsnowflake.git)
+
+
+### Run the Desktop Application
 ```
 git clone https://github.com/Computer-Kurzweil/kochsnowflake.git
 cd kochsnowflake
 ./mvnw
 ```
-
-## Screenshot
-### Early Screen
-![Early Screen](img/screen1.png)
-### Later Screen
-![Later Screen](img/screen2.png)
-
-
-## UML Class Model
-![UML Class Model](img/Class_Model.jpg)
-
-## Github Repository
-[https://github.com/Computer-Kurzweil/simulated-evolution](https://github.com/Computer-Kurzweil/simulated-evolution)
-
-## Blog Article
-[http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
