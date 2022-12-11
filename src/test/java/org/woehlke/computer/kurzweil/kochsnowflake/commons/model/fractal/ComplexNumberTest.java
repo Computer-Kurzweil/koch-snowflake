@@ -1,7 +1,6 @@
-package org.woehlke.computer.kurzweil.tabs.mandelbrot2julia;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal;
 
 import org.junit.Test;
-import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal.ComplexNumber;
 
 import java.util.logging.Logger;
 

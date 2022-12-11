@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.tabs.mandelbrotzoom.model.turing;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing;
 
 
 import org.junit.Test;
