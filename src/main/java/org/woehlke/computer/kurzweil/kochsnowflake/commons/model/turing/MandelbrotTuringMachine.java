@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal.GaussianNumberPlane;
-import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.KochSnowflakeModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.ui.KochSnowflakeModel;
 
 import java.io.Serializable;
 

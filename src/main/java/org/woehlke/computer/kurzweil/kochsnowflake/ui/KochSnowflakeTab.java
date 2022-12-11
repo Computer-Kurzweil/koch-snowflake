@@ -1,7 +1,6 @@
-package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake;
+package org.woehlke.computer.kurzweil.kochsnowflake.ui;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.ui.PanelButtons;
+import org.woehlke.computer.kurzweil.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.ui.PanelCopyright;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.ui.PanelSubtitle;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.Point;
@@ -14,8 +13,10 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
- * (C) 2006 - 2013 Thomas Woehlke.
+ * (C) 2006 - 2022 Thomas Woehlke.
  * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake">Maven Project Reports</a>
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 18:47:46

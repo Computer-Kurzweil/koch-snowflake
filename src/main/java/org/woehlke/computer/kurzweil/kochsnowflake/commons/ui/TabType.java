@@ -1,9 +1,15 @@
-package org.woehlke.computer.kurzweil.kochsnowflake.tabs;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.ui;
 
 import lombok.Getter;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * (C) 2006 - 2022 Thomas Woehlke.
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake">Maven Project Reports</a>
+ * @author Thomas Woehlke
+ */
 @Getter
 public enum TabType {
 

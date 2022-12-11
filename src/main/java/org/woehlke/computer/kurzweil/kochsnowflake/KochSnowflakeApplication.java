@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.KochSnowflakeTab;
+import org.woehlke.computer.kurzweil.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.ui.KochSnowflakeTab;
 
 import java.io.File;
 import java.net.URL;
@@ -9,8 +9,9 @@ import java.net.URL;
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  *
- * (C) 2006 - 2015 Thomas Woehlke.
- * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
+ * (C) 2006 - 2022 Thomas Woehlke.
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake">Maven Project Reports</a>
  * @author Thomas Woehlke
  */
 public class KochSnowflakeApplication {

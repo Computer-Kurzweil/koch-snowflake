@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
+import static org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.MandelbrotTuringPhase.*;
 
 public class TuringTuringPhaseStateEnumTest {
 
@@ -40,7 +41,7 @@ public class TuringTuringPhaseStateEnumTest {
         turingPhaseState = new MandelbrotTuringPhaseState();
         turingPhaseState.start();
         turingPhaseState.finishSearchTheSet();
-        assertEquals(turingPhaseState.getTuringTuringPhase(),WALK_AROUND_THE_SET);
+        assertEquals(turingPhaseState.getTuringTuringPhase(), WALK_AROUND_THE_SET);
         turingPhaseState.finishWalkAround();
         assertEquals(turingPhaseState.getTuringTuringPhase(), FILL_THE_OUTSIDE_WITH_COLOR);
         log.info("finishWalkAroundTest done");

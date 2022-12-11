@@ -1,6 +1,4 @@
-package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.ui;
-
-import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.KochSnowflakeModel;
+package org.woehlke.computer.kurzweil.kochsnowflake.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +9,9 @@ import java.awt.event.ActionListener;
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  *
- * (C) 2006 - 2015 Thomas Woehlke.
- * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
+ * (C) 2006 - 2022 Thomas Woehlke.
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake">Maven Project Reports</a>
  * @author Thomas Woehlke
  *
  * Created by tw on 16.12.2019.
