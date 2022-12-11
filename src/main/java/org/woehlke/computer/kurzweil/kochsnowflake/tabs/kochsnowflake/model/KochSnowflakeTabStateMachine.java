@@ -1,9 +1,7 @@
-package org.woehlke.computer.kurzweil.tabs.kochsnowflake.model;
+package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.model;
 
 
 import java.io.Serializable;
-
-import static org.woehlke.computer.kurzweil.tabs.kochsnowflake.model.KochSnowflakeTabState.*;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -28,10 +26,10 @@ public class KochSnowflakeTabStateMachine implements Serializable {
         KochSnowflakeTabState nextApplicationState = null;
         switch (applicationState){
             case MANDELBROT:
-                nextApplicationState = MANDELBROT_ZOOM;
+                nextApplicationState = KochSnowflakeTabState.MANDELBROT_ZOOM;
                 break;
             case MANDELBROT_ZOOM:
-                nextApplicationState = MANDELBROT;
+                nextApplicationState = KochSnowflakeTabState.MANDELBROT;
                 break;
         }
         this.setApplicationState(nextApplicationState);
@@ -59,7 +57,7 @@ public class KochSnowflakeTabStateMachine implements Serializable {
         KochSnowflakeTabState nextApplicationState = this.applicationState;
         switch (applicationState){
             case MANDELBROT:
-                nextApplicationState = MANDELBROT_ZOOM;
+                nextApplicationState = KochSnowflakeTabState.MANDELBROT_ZOOM;
                 break;
             //case JULIA_SET:
               //  nextApplicationState = JULIA_SET_ZOOM;

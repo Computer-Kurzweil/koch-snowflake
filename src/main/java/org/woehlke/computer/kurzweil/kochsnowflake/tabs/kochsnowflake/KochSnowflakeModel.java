@@ -1,11 +1,11 @@
-package org.woehlke.computer.kurzweil.tabs.kochsnowflake;
+package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake;
 
 import lombok.Getter;
-import org.woehlke.computer.kurzweil.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.commons.model.fractal.GaussianNumberPlane;
-import org.woehlke.computer.kurzweil.commons.model.turing.Point;
-import org.woehlke.computer.kurzweil.tabs.kochsnowflake.model.KochSnowflakeTabStateMachine;
-import org.woehlke.computer.kurzweil.commons.model.turing.MandelbrotTuringMachine;
+import org.woehlke.computer.kurzweil.kochsnowflake.application.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal.GaussianNumberPlane;
+import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.Point;
+import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.model.KochSnowflakeTabStateMachine;
+import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.MandelbrotTuringMachine;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.

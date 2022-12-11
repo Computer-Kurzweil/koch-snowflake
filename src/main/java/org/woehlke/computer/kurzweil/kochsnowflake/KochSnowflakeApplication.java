@@ -1,7 +1,7 @@
-package org.woehlke.computer.kurzweil;
+package org.woehlke.computer.kurzweil.kochsnowflake;
 
-import org.woehlke.computer.kurzweil.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.tabs.kochsnowflake.KochSnowflakeTab;
+import org.woehlke.computer.kurzweil.kochsnowflake.application.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.KochSnowflakeTab;
 
 import java.io.File;
 import java.net.URL;

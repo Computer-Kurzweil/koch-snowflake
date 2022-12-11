@@ -1,6 +1,6 @@
-package org.woehlke.computer.kurzweil.tabs.kochsnowflake.ui;
+package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.ui;
 
-import org.woehlke.computer.kurzweil.tabs.kochsnowflake.KochSnowflakeModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake.KochSnowflakeModel;
 
 import javax.swing.*;
 import java.awt.*;

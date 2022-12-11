@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.commons.model.turing;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing;
 
 import java.io.Serializable;
 

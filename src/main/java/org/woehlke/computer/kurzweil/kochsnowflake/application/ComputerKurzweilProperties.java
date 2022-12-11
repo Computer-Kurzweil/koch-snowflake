@@ -1,10 +1,10 @@
-package org.woehlke.computer.kurzweil.application;
+package org.woehlke.computer.kurzweil.kochsnowflake.application;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import lombok.*;
 import lombok.extern.java.Log;
-import org.woehlke.computer.kurzweil.tabs.TabType;
+import org.woehlke.computer.kurzweil.kochsnowflake.tabs.TabType;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

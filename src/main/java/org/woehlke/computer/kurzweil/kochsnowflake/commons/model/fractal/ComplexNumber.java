@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.commons.model.fractal;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal;
 
 import java.io.Serializable;
 import java.util.Objects;

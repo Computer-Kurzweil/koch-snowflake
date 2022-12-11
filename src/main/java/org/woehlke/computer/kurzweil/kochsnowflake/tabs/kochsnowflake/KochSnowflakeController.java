@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.tabs.kochsnowflake;
+package org.woehlke.computer.kurzweil.kochsnowflake.tabs.kochsnowflake;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.

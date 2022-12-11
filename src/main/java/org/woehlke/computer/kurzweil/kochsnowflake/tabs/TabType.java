@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.tabs;
+package org.woehlke.computer.kurzweil.kochsnowflake.tabs;
 
 import lombok.Getter;
 

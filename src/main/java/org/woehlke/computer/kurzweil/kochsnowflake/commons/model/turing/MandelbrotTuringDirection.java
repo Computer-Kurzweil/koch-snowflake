@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.tabs.kochsnowflake.model;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -7,9 +7,11 @@ package org.woehlke.computer.kurzweil.tabs.kochsnowflake.model;
  * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
  * @author Thomas Woehlke
  *
- * Created by tw on 23.08.15.
+ * Created by tw on 18.08.15.
  */
-public enum KochSnowflakeTabState {
-    MANDELBROT,
-    MANDELBROT_ZOOM
+public enum MandelbrotTuringDirection {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT
 }

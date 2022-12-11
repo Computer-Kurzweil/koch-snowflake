@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.commons.ui;
+package org.woehlke.computer.kurzweil.kochsnowflake.commons.ui;
 
 import javax.swing.*;
 import java.awt.*;
