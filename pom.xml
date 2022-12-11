@@ -46,8 +46,8 @@
 
     <distributionManagement>
         <site>
-            <id>simulatedevolution.public_html</id>
-            <url>file://${user.home}/public_html/java/computer_kurzweil</url>
+            <id>kochsnowflake.public_html</id>
+            <url>file://${user.home}/public_html/java/kochsnowflake</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
