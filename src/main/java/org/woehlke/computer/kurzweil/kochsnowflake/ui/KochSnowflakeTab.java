@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.ui;
 
-import org.woehlke.computer.kurzweil.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.ui.PanelCopyright;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.ui.PanelSubtitle;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.Point;

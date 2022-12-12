@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.ui;
 
 import lombok.Getter;
-import org.woehlke.computer.kurzweil.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.fractal.GaussianNumberPlane;
 import org.woehlke.computer.kurzweil.kochsnowflake.commons.model.turing.Point;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeTabStateMachine;

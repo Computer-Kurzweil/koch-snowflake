@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake;
 
-import org.woehlke.computer.kurzweil.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.ui.KochSnowflakeTab;
 
 import java.io.File;

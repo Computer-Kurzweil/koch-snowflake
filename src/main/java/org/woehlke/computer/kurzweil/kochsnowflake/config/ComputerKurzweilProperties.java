@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.config;
+package org.woehlke.computer.kurzweil.kochsnowflake.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
