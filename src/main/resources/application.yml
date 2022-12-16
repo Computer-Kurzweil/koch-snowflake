@@ -1,7 +1,7 @@
 allinone:
   lattice:
-    width: 800
-    height: 585
+    width: 640
+    height: 400
   view:
     title: 'Computer Kurzweil'
     subtitle: 'Scientific Imfotainment'
@@ -13,21 +13,36 @@ allinone:
     start: 'Start'
     stop: 'Stop'
     info: 'Info'
-mandelbrot:
+mandelbrotJulia:
   view:
     title: 'Mandelbrot Set'
     subtitle: 'Fractal Mandelbrot Set drawn by a Turing Machine'
-    buttonsZoom: 'Zoom In'
+    copyright: '(c) 2022 Thomas Woehlke'
+    width: 400
+    height: 292
+    scale: 3
+  control:
+    threadSleepTime: 50
+mandelbrotZoom:
+  view:
+    title: 'Mandelbrot Set'
+    subtitle: 'Fractal Mandelbrot Set drawn by a Turing Machine'
+    copyright: '(c) 2022 Thomas Woehlke'
     buttonsZoomOut: 'Zoom Out'
-    buttonsSwitch: 'Mandelbrot Set <-> Julia Set'
     buttonsZoomLabel: 'Zoom'
-    buttonsLabel: 'Choose Mouse Click Mode'
+    width: 400
+    height: 292
+    scale: 3
   control:
     threadSleepTime: 50
 simulatedevolution:
   view:
     title: 'Simulated Evolution'
     subtitle: 'Artificial Life Simulation of Bacteria Motion depending on DNA'
+    copyright: "(C) 2022 Thomas Woehlke"
+    width: 320
+    height: 234
+    scale: 3
   control:
     threadSleepTime: 100
     exitStatus: 0
@@ -43,14 +58,13 @@ simulatedevolution:
     ageMax: 1000
   population:
     initialPopulation: 20
-    panelPopulationStatistics: 'Population'
-    panelLifeCycleStatistics: 'LifeCycle'
+    panelPopulationStatistics: 'Statistics'
     youngCellsLabel: 'young'
-    youngAndFatCellsLabel: 'young and Fat'
-    fullAgeCellsLabel: 'full Age'
+    youngAndFatCellsLabel: 'fat'
+    fullAgeCellsLabel: 'adult'
     hungryCellsLabel: 'hungry'
     oldCellsLabel: 'old'
-    populationLabel: 'population'
+    populationLabel: 'all'
     generationOldestLabel: 'oldest Generation'
     generationYoungestLabel: 'youngest Generation'
   food:
@@ -157,11 +171,6 @@ wator:
   view:
     title: 'WaTor'
     subtitle: 'Population Dynamics on Planet Water Torus'
-    buttonsZoom: 'Zoom In'
-    buttonsZoomOut: 'Zoom Out'
-    buttonsSwitch: 'Mandelbrot Set <-> Julia Set'
-    buttonsZoomLabel: 'Zoom'
-    buttonsLabel: 'Choose Mouse Click Mode'
     neighborhood:
       title: 'Neighborhood'
       typeVonNeumann: 'Von Neumann'

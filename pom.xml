@@ -4,25 +4,42 @@
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
     <artifactId>kochsnowflake</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>3.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Koch Snowflake</name>
-    <description>Computer Science InfotainmentComputer Science Infotainment.
-        A Tribute to the "Computer Kurzweil" named Article Series in Spektrum der Wissenschaft
-        which is the german release of Scientific American.
-        The Article Series "Computer Kurzweil" were also published as Books.
-        Content: Cellular Automata, Fractal Geometry, Artficial Life, Simulation,
-        Automata and Turing Machines, Systems Theory.</description>
-    <url>https://java.woehlke.org/computer_kurzweil</url>
-    <inceptionYear>2022</inceptionYear>
+    <description>a fractal with self self-similarity</description>
+    <url>https://java.woehlke.org/kochsnowflake</url>
+    <inceptionYear>2013</inceptionYear>
 
     <scm>
-        <connection>scm:git@github.com:Computer-Kurzweil/kochsnowflake.git</connection>
+        <url>https://github.com/Computer-Kurzweil/kochsnowflake.git</url>
+        <connection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</developerConnection>
-        <url>https://github.com/Computer-Kurzweil/kochsnowflake/tree/${project.scm.tag}</url>
-        <tag>head</tag>
+        <tag>HEAD</tag>
     </scm>
+
+    <issueManagement>
+        <url>https://github.com/Computer-Kurzweil/kochsnowflake/issues/</url>
+        <system>GitHub</system>
+    </issueManagement>
+
+    <distributionManagement>
+        <site>
+            <id>mandelbrot-julia.local</id>
+            <url>file://${user.home}/public_html/java/kochsnowflake</url>
+        </site>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>tw-thinkpad-snapshots</name>
+            <url>file://${user.home}/public_html/java/libs-snapshots-local/</url>
+        </snapshotRepository>
+        <repository>
+            <id>central</id>
+            <name>tw-thinkpad-releases</name>
+            <url>file://${user.home}/public_html/java/libs-release-local/</url>
+        </repository>
+    </distributionManagement>
 
     <organization>
         <name>Computer Kurzweil</name>
@@ -38,28 +55,6 @@
             <timezone>Europe/Paris</timezone>
         </developer>
     </developers>
-
-    <issueManagement>
-        <url>https://github.com/Computer-Kurzweil/kochsnowflake/issues/</url>
-        <system>GitHub</system>
-    </issueManagement>
-
-    <distributionManagement>
-        <site>
-            <id>kochsnowflake.public_html</id>
-            <url>file://${user.home}/public_html/java/kochsnowflake</url>
-        </site>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>tw-thinkpad-snapshots</name>
-            <url>file://${user.home}/public_html/java/libs-snapshot-local</url>
-        </snapshotRepository>
-        <repository>
-            <id>central</id>
-            <name>tw-thinkpad-releases</name>
-            <url>file://${user.home}/public_html/java/libs-release-local</url>
-        </repository>
-    </distributionManagement>
 
     <licenses>
         <license>
@@ -130,7 +125,6 @@
             <url>https://repo.adobe.com/nexus/content/repositories/public/</url>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>jcenter</id>
@@ -265,12 +259,7 @@
         <version.log4j2>2.19.0</version.log4j2>
         <version.lombok>1.18.24</version.lombok>
         <version.lombok-maven-plugin>1.18.20.0</version.lombok-maven-plugin>
-        <!--
-        <version.maven-pdf-plugin>1.4</version.maven-pdf-plugin>
-        <maven.repository.local>${maven.multiModuleProjectDirectory}/mvn-repository/</maven.repository.local>
-        <directory.etc>${maven.multiModuleProjectDirectory}/src/site/resources/checkstyle/</directory.etc>
-        -->
-        <applicationMainClass>org.woehlke.computer.kurzweil.kochsnowflake.KochSnowflakeApplication</applicationMainClass>
+
     </properties>
 
     <dependencyManagement>
@@ -363,12 +352,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${version.junit5}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-yaml</artifactId>
                 <version>${version.jackson.databind}</version>
@@ -457,6 +440,13 @@
                 <type>maven-plugin</type>
                 <scope>provided</scope>
             </dependency>
+            <!--
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
+            </dependency>
+            -->
             <dependency>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -602,7 +592,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -669,11 +658,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -755,10 +739,16 @@
             <artifactId>commons-collections4</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <type>maven-plugin</type>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <type>maven-plugin</type>
         </dependency>
+
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-site-plugin</artifactId>
@@ -811,7 +801,7 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
-        <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install exec:java</defaultGoal>
+        <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy exec:java</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -853,6 +843,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>${version.maven-shade-plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${version.exec-maven-plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.maven-jar-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -956,34 +956,6 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>${version.exec-maven-plugin}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>java</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.KochSnowflakeApplication</mainClass>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${version.maven-jar-plugin}</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.KochSnowflakeApplication</mainClass>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -1045,7 +1017,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.KochSnowflakeApplication</mainClass>
+                    <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.MandelbrotSetApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -1170,6 +1142,138 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+        <profile>
+            <id>run</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean package exec:java</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>build</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy exec:java</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>site</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+                <skipIntegrationTests>false</skipIntegrationTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>release:prepare release:perform</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>uml</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.funthomas424242</groupId>
+                        <artifactId>plantuml-maven-plugin</artifactId>
+                        <version>${version.plantuml-maven-plugin}</version>
+                        <type>maven-plugin</type>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>javax.enterprise</groupId>
+                                <artifactId>cdi-api</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.plantuml</groupId>
+                        <artifactId>plantuml</artifactId>
+                        <version>${version.plantuml-maven-plugin.plantuml}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>com.github.funthomas424242</groupId>
+                    <artifactId>plantuml-maven-plugin</artifactId>
+                    <type>maven-plugin</type>
+                </dependency>
+                <dependency>
+                    <groupId>net.sourceforge.plantuml</groupId>
+                    <artifactId>plantuml</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean com.github.funthomas424242:plantuml-maven-plugin:generate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.funthomas424242</groupId>
+                        <artifactId>plantuml-maven-plugin</artifactId>
+                        <version>${version.plantuml-maven-plugin}</version>
+                        <configuration>
+                            <truncatePattern>src/main/*</truncatePattern>
+                            <sourceFiles>
+                                <directory>${basedir}</directory>
+                                <includes>
+                                    <include>src/plantuml/**/*.puml</include>
+                                </includes>
+                            </sourceFiles>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.sourceforge.plantuml</groupId>
+                                <artifactId>plantuml</artifactId>
+                                <version>${version.plantuml-maven-plugin.plantuml}</version>
+                                <scope>runtime</scope>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
 
 
 </project>

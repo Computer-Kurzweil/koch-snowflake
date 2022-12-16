@@ -1,4 +1,4 @@
-# Mandelbrot to Julia
+# Mandelbrot vs Julia
 
 [![Java CI with Maven](https://github.com/Computer-Kurzweil/mandelbrot-julia/actions/workflows/maven.yml/badge.svg)](https://github.com/Computer-Kurzweil/mandelbrot-julia/actions/workflows/maven.yml)
 [![Build Status](https://travis-ci.com/Computer-Kurzweil/mandelbrot-julia.svg?branch=master)](https://travis-ci.com/Computer-Kurzweil/mandelbrot-julia)
@@ -7,12 +7,12 @@
 
 ## Abstract: Mandelbrot Set
 
-The Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0 
+The Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0
 under iteration of the complex quadratic polynomial z_(n+1)=z_n^2+c remains bounded.
 
-That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0 
-and applying the iteration repeatedly, the absolute value of zn remains bounded 
-however large n gets. 
+That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0
+and applying the iteration repeatedly, the absolute value of zn remains bounded
+however large n gets.
 
 ## The Turing Machine to Compute the Mandelbrot Set
 The Complex Number Plane is divided into Cells for the two dimensional Tape of the Turing-Machine.
@@ -33,23 +33,23 @@ The most beautiful Julia Sets are drawn by clicking into the Border of the Mande
 
 ### Running around the Edge of the Mandelbrot Set
 
-![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen01.png)
+![Running around the Edge of the Mandelbrot Set](img/screen01.png)
 
 ### Running around the Edge of the Mandelbrot Set
 
-![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen02.png)
+![Running around the Edge of the Mandelbrot Set](img/screen02.png)
 
 ### Computing the Area outside the Mandelbrot Set
 
-![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen03.png)
+![Computing the Area outside the Mandelbrot Set](img/screen03.png)
 
 ### Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set
 
-![Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set](src/main/resources/img/julia01.png)
+![Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set](img/julia01.png)
 
 ### Clicked  on another Point on the Edge of Mandelbrot Set: The Julia Set
 
-![Clicked on another Point on the Edge of Mandelbrot Set: The Julia Set](src/main/resources/img/julia02.png)
+![Clicked on another Point on the Edge of Mandelbrot Set: The Julia Set](img/julia02.png)
 
 
 ### Repositories
