@@ -20,7 +20,7 @@ public class KochSnowflakeApplication {
 
     private KochSnowflakeApplication() {
         String conf = "application.yml";
-        String jarPath = "target/mandelbrot-julia.jar";
+        String jarPath = "target/kochsnowflake.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
         ApplicationFrame frame = new ApplicationFrame(config);
         frame.start();
