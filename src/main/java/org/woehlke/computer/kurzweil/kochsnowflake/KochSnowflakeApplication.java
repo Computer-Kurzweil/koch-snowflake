@@ -16,9 +16,9 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  */
-public class MandelbrotSetApplication {
+public class KochSnowflakeApplication {
 
-    private MandelbrotSetApplication() {
+    private KochSnowflakeApplication() {
         String conf = "application.yml";
         String jarPath = "target/mandelbrot-julia.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
@@ -31,6 +31,6 @@ public class MandelbrotSetApplication {
      * @param args CLI Parameter
      */
     public static void main(String[] args) {
-        MandelbrotSetApplication application = new MandelbrotSetApplication();
+        KochSnowflakeApplication application = new KochSnowflakeApplication();
     }
 }

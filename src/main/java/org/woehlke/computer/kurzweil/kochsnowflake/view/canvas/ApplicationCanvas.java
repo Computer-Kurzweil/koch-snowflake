@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.view.canvas;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ import java.io.Serial;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
- * @see ApplicationModel
+ * @see KochSnowflakeModel
  * @see Dimension
  *
  * @see JComponent
@@ -30,10 +30,10 @@ public class ApplicationCanvas extends JComponent {
     @Serial
     private final static long serialVersionUID = 242L;
 
-    private volatile ApplicationModel app;
+    private volatile KochSnowflakeModel app;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(ApplicationModel app) {
+    public ApplicationCanvas(KochSnowflakeModel app) {
         this.app = app;
         int width = this.app.getWorldDimensions().getWidth();
         int height = this.app.getWorldDimensions().getHeight();

@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.model.turing;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.fractal.GaussianNumberPlane;
 
 /**
@@ -19,13 +19,13 @@ import org.woehlke.computer.kurzweil.kochsnowflake.model.fractal.GaussianNumberP
  * Date: 28.08.13
  * Time: 12:39
  */
-public class MandelbrotTuringMachine {
+public class KochSnowflakeTuringMachine {
 
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile TuringPositions turingPositions;
     private volatile TuringPhaseState turingPhaseState;
 
-    public MandelbrotTuringMachine(ApplicationModel model) {
+    public KochSnowflakeTuringMachine(KochSnowflakeModel model) {
         this.gaussianNumberPlane = model.getGaussianNumberPlane();
         this.turingPhaseState = new TuringPhaseState();
         this.turingPositions = new TuringPositions(model.getWorldDimensions());

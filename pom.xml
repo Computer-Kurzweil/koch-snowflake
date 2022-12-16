@@ -1017,7 +1017,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.MandelbrotSetApplication</mainClass>
+                    <mainClass>org.woehlke.computer.kurzweil.kochsnowflake.KochSnowflakeApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

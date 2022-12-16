@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.control;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
 /**
@@ -12,7 +12,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
- * @see ApplicationModel
+ * @see KochSnowflakeModel
  * @see ApplicationFrame
  *
  * @see Thread
@@ -23,16 +23,16 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  */
 public class ControllerThread extends Thread implements Runnable {
 
-    private volatile ApplicationModel applicationModel;
+    private volatile KochSnowflakeModel kochSnowflakeModel;
     private volatile ApplicationFrame frame;
 
     private final int THREAD_SLEEP_TIME = 1;
 
     private volatile Boolean goOn;
 
-    public ControllerThread(ApplicationModel model, ApplicationFrame frame) {
+    public ControllerThread(KochSnowflakeModel model, ApplicationFrame frame) {
         this.frame = frame;
-        this.applicationModel = model;
+        this.kochSnowflakeModel = model;
         goOn = Boolean.TRUE;
     }
 
@@ -42,7 +42,7 @@ public class ControllerThread extends Thread implements Runnable {
             synchronized (goOn) {
                 doIt = goOn.booleanValue();
             }
-            if(this.applicationModel.step()){
+            if(this.kochSnowflakeModel.step()){
                 frame.getCanvas().repaint();
             }
             try { sleep(THREAD_SLEEP_TIME); }

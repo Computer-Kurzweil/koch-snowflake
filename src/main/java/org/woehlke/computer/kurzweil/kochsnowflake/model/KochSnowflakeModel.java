@@ -4,7 +4,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProper
 import org.woehlke.computer.kurzweil.kochsnowflake.model.fractal.GaussianNumberPlane;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.common.Point;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.state.ApplicationStateMachine;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.turing.MandelbrotTuringMachine;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.turing.KochSnowflakeTuringMachine;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
 /**
@@ -17,7 +17,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
  * @see GaussianNumberPlane
- * @see MandelbrotTuringMachine
+ * @see KochSnowflakeTuringMachine
  * @see ApplicationStateMachine
  *
  * @see ComputerKurzweilProperties
@@ -25,20 +25,20 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  *
  * Created by tw on 16.12.2019.
  */
-public class ApplicationModel {
+public class KochSnowflakeModel {
 
     private volatile GaussianNumberPlane gaussianNumberPlane;
-    private volatile MandelbrotTuringMachine mandelbrotTuringMachine;
+    private volatile KochSnowflakeTuringMachine kochSnowflakeTuringMachine;
     private volatile ApplicationStateMachine applicationStateMachine;
 
     private volatile ComputerKurzweilProperties config;
     private volatile ApplicationFrame frame;
 
-    public ApplicationModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
+    public KochSnowflakeModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
         this.config = config;
         this.frame = frame;
         this.gaussianNumberPlane = new GaussianNumberPlane(this);
-        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(this);
+        this.kochSnowflakeTuringMachine = new KochSnowflakeTuringMachine(this);
         this.applicationStateMachine = new ApplicationStateMachine();
     }
 
@@ -47,7 +47,7 @@ public class ApplicationModel {
         boolean repaint = true;
         switch (applicationStateMachine.getApplicationState()) {
             case MANDELBROT:
-                mandelbrotTuringMachine.start();
+                kochSnowflakeTuringMachine.start();
                 repaint = false;
                 break;
             case JULIA_SET:
@@ -61,7 +61,7 @@ public class ApplicationModel {
         boolean repaint = false;
         switch (applicationStateMachine.getApplicationState()) {
             case MANDELBROT:
-                repaint = mandelbrotTuringMachine.step();
+                repaint = kochSnowflakeTuringMachine.step();
                 break;
             case JULIA_SET:
                 break;

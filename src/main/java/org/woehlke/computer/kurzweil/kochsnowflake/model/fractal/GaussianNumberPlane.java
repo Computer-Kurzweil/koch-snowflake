@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.model.fractal;
 
-import org.woehlke.computer.kurzweil.kochsnowflake.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.common.Point;
 
 import java.util.ArrayDeque;
@@ -54,7 +54,7 @@ public class GaussianNumberPlane {
 
     //public static Logger log = Logger.getLogger(GaussianNumberPlane.class.getName());
 
-    public GaussianNumberPlane(ApplicationModel model) {
+    public GaussianNumberPlane(KochSnowflakeModel model) {
         this.worldDimensions = model.getWorldDimensions();
         this.lattice = new int[worldDimensions.getWidth()][worldDimensions.getHeight()];
         this.complexWorldDimensions = new ComplexNumber(

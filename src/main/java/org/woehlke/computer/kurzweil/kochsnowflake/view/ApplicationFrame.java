@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.kochsnowflake.view;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.control.ControllerThread;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.common.Point;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.canvas.ApplicationCanvas;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.labels.PanelCopyright;
@@ -23,7 +23,7 @@ import java.io.Serializable;
  *
  * @see ControllerThread
  * @see ApplicationCanvas
- * @see ApplicationModel
+ * @see KochSnowflakeModel
  * @see PanelSubtitle
  * @see PanelCopyright
  *
@@ -54,13 +54,13 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
 
     private volatile ControllerThread controller;
     private volatile ApplicationCanvas canvas;
-    private volatile ApplicationModel model;
+    private volatile KochSnowflakeModel model;
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
 
     public ApplicationFrame(ComputerKurzweilProperties config) {
         super(config.getMandelbrotJulia().getView().getTitle());
-        this.model = new ApplicationModel(config,this);
+        this.model = new KochSnowflakeModel(config,this);
         this.canvas = new ApplicationCanvas(model);
         this.controller = new ControllerThread(model, this);
         this. panelSubtitle = new PanelSubtitle(config.getMandelbrotJulia().getView().getSubtitle());
