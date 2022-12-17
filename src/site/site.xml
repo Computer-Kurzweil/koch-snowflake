@@ -27,13 +27,13 @@
         </breadcrumbs>
         <menu name="Main" inherit="top">
             <item name="Home" href="index.html" />
-            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/kochsnowflake-julia" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/kochsnowflake" />
             <item name="License" href="LICENSE.html" />
             <item name="License" href="LICENSE.code.html" />
         </menu>
         <menu name="Contribute" inherit="bottom">
-            <item name="Issues" href="https://github.com/Computer-Kurzweil/mandelbrot-julia/issues/" />
-            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/mandelbrot-julia/" />
+            <item name="Issues" href="https://github.com/Computer-Kurzweil/kochsnowflake/issues/" />
+            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/kochsnowflake/" />
             <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
         </menu>
         <menu name="Maven Reports" ref="reports" inherit="bottom"/>
