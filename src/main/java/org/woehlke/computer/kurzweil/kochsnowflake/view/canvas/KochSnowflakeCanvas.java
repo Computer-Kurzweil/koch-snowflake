@@ -27,7 +27,7 @@ import java.io.Serial;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class ApplicationCanvas extends JComponent {
+public class KochSnowflakeCanvas extends JComponent {
 
     @Serial
     private final static long serialVersionUID = 242L;
@@ -35,7 +35,7 @@ public class ApplicationCanvas extends JComponent {
     private volatile KochSnowflakeModel model;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(KochSnowflakeFrame tab) {
+    public KochSnowflakeCanvas(KochSnowflakeFrame tab) {
         this.model = tab.getModel();
         int width = this.model.getWorldDimensions().getWidth();
         int height = this.model.getWorldDimensions().getHeight();

@@ -6,7 +6,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.control.ControllerThread;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeRectangle;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.canvas.ApplicationCanvas;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.canvas.KochSnowflakeCanvas;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.labels.PanelCopyright;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.labels.PanelSubtitle;
 
@@ -24,7 +24,7 @@ import java.io.Serializable;
  * @author Thomas Woehlke
  *
  * @see ControllerThread
- * @see ApplicationCanvas
+ * @see KochSnowflakeCanvas
  * @see KochSnowflakeModel
  * @see PanelSubtitle
  * @see PanelCopyright
@@ -56,7 +56,7 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
     private final PanelCopyright panelCopyright;
 
     private volatile ControllerThread controller;
-    private volatile ApplicationCanvas canvas;
+    private volatile KochSnowflakeCanvas canvas;
     private volatile KochSnowflakeModel model;
     private volatile LatticeRectangle rectangleBounds;
     private final ComputerKurzweilProperties config;
@@ -65,7 +65,7 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
         super(config.getKochsnowflake().getView().getTitle());
         this.config = config;
         this.model = new KochSnowflakeModel(this);
-        this.canvas = new ApplicationCanvas(this);
+        this.canvas = new KochSnowflakeCanvas(this);
         this.controller = new ControllerThread( this);
         this.panelSubtitle = new PanelSubtitle(config.getKochsnowflake().getView().getSubtitle());
         this.panelCopyright = new PanelCopyright(config.getKochsnowflake().getView().getCopyright());
@@ -189,7 +189,7 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
         canvas.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
     }
 
-    public ApplicationCanvas getCanvas() {
+    public KochSnowflakeCanvas getCanvas() {
         return canvas;
     }
 
