@@ -44,8 +44,7 @@ public class KochSnowflakeModel implements Serializable {
     }
 
     public synchronized boolean step() {
-        boolean repaint = false;
-        return repaint;
+        return this.linkedListNodeContainer.step();
     }
 
     public void click(LatticePoint c) {

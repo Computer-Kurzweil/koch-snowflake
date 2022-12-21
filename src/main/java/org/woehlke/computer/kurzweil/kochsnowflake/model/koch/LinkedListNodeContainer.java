@@ -73,4 +73,9 @@ public class LinkedListNodeContainer implements Serializable {
         currentNode = currentNode.getNext();
         return currentNode;
     }
+
+    public boolean step() {
+        boolean repaint = true;
+        return repaint;
+    }
 }
