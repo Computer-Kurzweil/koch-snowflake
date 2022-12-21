@@ -23,7 +23,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  */
 public class ControllerThread extends Thread implements Runnable {
 
-    private volatile KochSnowflakeModel kochSnowflakeModel;
+    private volatile KochSnowflakeModel model;
     private volatile ApplicationFrame tab;
 
     private final int threadSleepTtime;
@@ -31,15 +31,16 @@ public class ControllerThread extends Thread implements Runnable {
 
     public ControllerThread(ApplicationFrame tab) {
         this.tab = tab;
-        this.kochSnowflakeModel = this.tab.getModel();
+        this.model = this.tab.getModel();
         goOn = Boolean.TRUE;
         this.threadSleepTtime = this.tab.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
     }
 
     public void run() {
         do {
-            if(this.kochSnowflakeModel.step()){
+            if(this.model.step()){
                 tab.getCanvas().repaint();
+                tab.repaint();
             }
             try {
                 sleep( this.threadSleepTtime);

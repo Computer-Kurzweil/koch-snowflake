@@ -18,12 +18,17 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  */
 public class KochSnowflakeApplication {
 
+    private final ApplicationFrame frame;
+
     private KochSnowflakeApplication() {
         String conf = "application.yml";
         String jarPath = "target/kochsnowflake.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
-        ApplicationFrame frame = new ApplicationFrame(config);
-        frame.start();
+        frame = new ApplicationFrame(config);
+    }
+
+    public void start(){
+        this.frame.start();
     }
 
     /**
@@ -32,5 +37,6 @@ public class KochSnowflakeApplication {
      */
     public static void main(String[] args) {
         KochSnowflakeApplication application = new KochSnowflakeApplication();
+        application.start();
     }
 }
