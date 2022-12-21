@@ -18,10 +18,10 @@ public class LinkedListNodeContainer implements Serializable {
 
     public LinkedListNodeContainer(ApplicationFrame tab){
         this.tab = tab;
-        setup();
+        start();
     }
 
-    public void setup(){
+    public void start(){
         int x1=10;
         int x2=this.tab.getCanvas().getX()/2;
         int x3=this.tab.getCanvas().getX()-10;

@@ -24,13 +24,12 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 public class KochSnowflakeModel {
 
     private volatile LinkedListNodeContainer linkedListNodeContainer;
-    private volatile ComputerKurzweilProperties config;
     private volatile ApplicationFrame tab;
 
     private final LatticeDimension worldDimensions;
 
-    public KochSnowflakeModel(ComputerKurzweilProperties config, ApplicationFrame tab) {
-        this.config = config;
+    public KochSnowflakeModel(ApplicationFrame tab) {
+        ComputerKurzweilProperties config = tab.getConfig();
         this.tab = tab;
         this.linkedListNodeContainer = new LinkedListNodeContainer(tab);
         int scale = config.getKochsnowflake().getView().getScale();
@@ -49,6 +48,6 @@ public class KochSnowflakeModel {
     }
 
     public void start(){
-
+        this.linkedListNodeContainer.start();
     }
 }

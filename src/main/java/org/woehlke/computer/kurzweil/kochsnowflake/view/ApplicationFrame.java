@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.view;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.control.ControllerThread;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
@@ -40,6 +41,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:47:46
  */
+@Getter
 public class ApplicationFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
@@ -57,13 +59,15 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile ApplicationCanvas canvas;
     private volatile KochSnowflakeModel model;
     private volatile LatticeRectangle rectangleBounds;
+    private final ComputerKurzweilProperties config;
 
     public ApplicationFrame(ComputerKurzweilProperties config) {
         super(config.getKochsnowflake().getView().getTitle());
-        this.model = new KochSnowflakeModel(config,this);
-        this.canvas = new ApplicationCanvas(model);
-        this.controller = new ControllerThread(model, this);
-        this. panelSubtitle = new PanelSubtitle(config.getKochsnowflake().getView().getSubtitle());
+        this.config = config;
+        this.model = new KochSnowflakeModel(this);
+        this.canvas = new ApplicationCanvas(this);
+        this.controller = new ControllerThread( this);
+        this.panelSubtitle = new PanelSubtitle(config.getKochsnowflake().getView().getSubtitle());
         this.panelCopyright = new PanelCopyright(config.getKochsnowflake().getView().getCopyright());
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);
@@ -191,5 +195,6 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     }
 
     public void start() {
+        this.model.start();
     }
 }

@@ -24,37 +24,37 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 public class ControllerThread extends Thread implements Runnable {
 
     private volatile KochSnowflakeModel kochSnowflakeModel;
-    private volatile ApplicationFrame frame;
+    private volatile ApplicationFrame tab;
 
-    private final int THREAD_SLEEP_TIME = 1;
-
+    private final int threadSleepTtime;
     private volatile Boolean goOn;
 
-    public ControllerThread(KochSnowflakeModel model, ApplicationFrame frame) {
-        this.frame = frame;
-        this.kochSnowflakeModel = model;
+    public ControllerThread(ApplicationFrame tab) {
+        this.tab = tab;
+        this.kochSnowflakeModel = this.tab.getModel();
         goOn = Boolean.TRUE;
+        this.threadSleepTtime = this.tab.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
     }
 
     public void run() {
-        boolean doIt;
         do {
-            synchronized (goOn) {
-                doIt = goOn.booleanValue();
-            }
             if(this.kochSnowflakeModel.step()){
-                frame.getCanvas().repaint();
+                tab.getCanvas().repaint();
             }
-            try { sleep(THREAD_SLEEP_TIME); }
-            catch (InterruptedException e) { }
-        }
-        while (doIt);
+            try {
+                sleep( this.threadSleepTtime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } while (goOn());
     }
 
-    public void exit() {
-        synchronized (goOn) {
-            goOn = Boolean.FALSE;
-        }
+    public synchronized boolean goOn() {
+        return goOn;
+    }
+
+    public synchronized void exit() {
+        goOn = Boolean.FALSE;
     }
 
 }

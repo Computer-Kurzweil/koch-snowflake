@@ -121,8 +121,7 @@ kochsnowflake:
       typeMoore: 'Moore'
       typeWoehlke: 'Woehlke'
   control:
-    threadSleepTime: 50
-    numberOfParticles: 30000
+    threadSleepTime: 1
 samegame:
   view:
     title: 'Same Game'

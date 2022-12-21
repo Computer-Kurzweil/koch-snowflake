@@ -266,7 +266,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public GardenOfEden gardenOfEden = new GardenOfEden();
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -291,7 +290,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer scale;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -307,7 +305,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer queueMaxLength;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -576,7 +573,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -603,7 +599,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @ToString
             @Getter
             @Setter
@@ -623,7 +618,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -632,8 +626,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @NotNull
             private Integer threadSleepTime;
 
-            @NotNull
-            private Integer numberOfParticles;
         }
     }
 
