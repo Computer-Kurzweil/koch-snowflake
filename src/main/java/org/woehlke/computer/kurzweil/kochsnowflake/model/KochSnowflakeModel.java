@@ -31,12 +31,15 @@ public class KochSnowflakeModel {
     private volatile KochSnowflakeTuringMachine kochSnowflakeTuringMachine;
     private volatile ApplicationStateMachine applicationStateMachine;
 
+    private volatile LinkedListNodeContainer linkedListNodeContainer;
+
     private volatile ComputerKurzweilProperties config;
     private volatile ApplicationFrame frame;
 
     public KochSnowflakeModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
         this.config = config;
         this.frame = frame;
+        this.linkedListNodeContainer = new LinkedListNodeContainer(frame);
         this.gaussianNumberPlane = new GaussianNumberPlane(this);
         this.kochSnowflakeTuringMachine = new KochSnowflakeTuringMachine(this);
         this.applicationStateMachine = new ApplicationStateMachine();
