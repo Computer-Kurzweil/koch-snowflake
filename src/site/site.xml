@@ -31,6 +31,8 @@
             <item name="Maven Project Reports" href="https://java.woehlke.org/kochsnowflake" />
             <item name="License" href="LICENSE.html" />
             <item name="Copyright" href="LICENSE.code.html" />
+            <item name="Wikipedia" href="https://en.wikipedia.org/wiki/Koch_snowflake" />
+            <item name="Helge von Koch" href="https://en.wikipedia.org/wiki/Helge_von_Koch" />
         </menu>
         <menu name="Contribute" inherit="bottom">
             <item name="Issues" href="https://github.com/Computer-Kurzweil/kochsnowflake/issues/" />

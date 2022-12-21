@@ -1,64 +1,54 @@
-# Mandelbrot to Julia
+# Koch snowflake
 
-[![Java CI with Maven](https://github.com/Computer-Kurzweil/mandelbrot-julia/actions/workflows/maven.yml/badge.svg)](https://github.com/Computer-Kurzweil/mandelbrot-julia/actions/workflows/maven.yml)
-[![Build Status](https://travis-ci.com/Computer-Kurzweil/mandelbrot-julia.svg?branch=master)](https://travis-ci.com/Computer-Kurzweil/mandelbrot-julia)
+[![Java CI with Maven](https://github.com/Computer-Kurzweil/kochsnowflake/actions/workflows/maven.yml/badge.svg)](https://github.com/Computer-Kurzweil/kochsnowflake/actions/workflows/maven.yml)
 
-**Computing the Edge of the Mandelbrot Set with a Turing Machine**
+**a fractal with self self-similarity**
 
-## Abstract: Mandelbrot Set
+## Abstract: Koch snowflake
 
-The Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0 
-under iteration of the complex quadratic polynomial z_(n+1)=z_n^2+c remains bounded.
+The Koch snowflake (also known as the Koch curve, Koch star, or Koch island) 
+is a fractal curve and one of the earliest fractals to have been described. 
 
-That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0 
-and applying the iteration repeatedly, the absolute value of zn remains bounded 
-however large n gets. 
+It is based on the Koch curve, which appeared in a 1904 paper titled 
+"On a Continuous Curve Without Tangents, Constructible from Elementary Geometry"
+by the Swedish mathematician Helge von Koch.
 
-## The Turing Machine to Compute the Mandelbrot Set
-The Complex Number Plane is divided into Cells for the two dimensional Tape of the Turing-Machine.
-Starting with Complex Number of Cell right from the Mandelbrot Set the Turing Machine goes one Step to the left and computes, wether the Complex Number of the Cell is inside the Set. If not, it continues to go left.
-The Turing-Machine then goes around the Set by computing wether the Complex Number of the Cell is inside the Set. If not it turns left, else it turns right. After that it goes one step forward.
-After the Turing Machine finished to run around the Set, the Application paints the Inside of the Set Black und computes the Colors of the Outside.
+The Koch snowflake can be built up iteratively, in a sequence of stages. 
+The first stage is an equilateral triangle, 
+and each successive stage is formed by adding outward bends to each side of the previous stage, 
+making smaller equilateral triangles. 
 
-## Julia Set
-The Mandelbrot Set is drawn into the Complex Number Plane and so clicking into it, it delivers the Complex Number to calculate a Julia Set for it.
-The most beautiful Julia Sets are drawn by clicking into the Border of the Mandelbrot Set.
+The areas enclosed by the successive stages in the construction 
+of the snowflake converge to 8 5 {\displaystyle {\tfrac {8}{5}}} times the area of the original triangle, 
+while the perimeters of the successive stages increase without bound. Consequently, the snowflake encloses 
+a finite area, but has an infinite perimeter.
 
 ## More
-* [https://en.wikipedia.org/wiki/Mandelbrot_set](https://en.wikipedia.org/wiki/Mandelbrot_set)
-* [https://en.wikipedia.org/wiki/Julia_set](https://en.wikipedia.org/wiki/Julia_set)
-* [https://en.wikipedia.org/wiki/Turing_machine](https://en.wikipedia.org/wiki/Turing_machine)
+* [https://en.wikipedia.org/wiki/Koch_snowflake](https://en.wikipedia.org/wiki/Koch_snowflake)
+* [https://en.wikipedia.org/wiki/Helge_von_Koch](https://en.wikipedia.org/wiki/Helge_von_Koch)
 
 ## Screenshots
 
-### Running around the Edge of the Mandelbrot Set
+### first stage is an equilateral triangle
 
 ![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen01.png)
 
-### Running around the Edge of the Mandelbrot Set
+### each successive stage is formed by adding outward bends to each side of the previous stage
 
 ![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen02.png)
 
-### Computing the Area outside the Mandelbrot Set
+### each successive stage is formed by adding outward bends to each side of the previous stage
 
 ![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen03.png)
 
-### Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set
-
-![Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set](src/main/resources/img/julia01.png)
-
-### Clicked  on another Point on the Edge of Mandelbrot Set: The Julia Set
-
-![Clicked on another Point on the Edge of Mandelbrot Set: The Julia Set](src/main/resources/img/julia02.png)
-
 
 ### Repositories
-* [Github Repository](https://github.com/Computer-Kurzweil/mandelbrot-julia)
-* [Maven Project Reports](https://java.woehlke.org/mandelbrot-julia/readme2.html)
+* [Github Repository](https://github.com/Computer-Kurzweil/kochsnowflake)
+* [Maven Project Reports](https://java.woehlke.org/kochsnowflake)
 
 ### Run the Application
 ```
-git clone https://github.com/Computer-Kurzweil/mandelbrot-julia.git
-cd mandelbrot-julia
+git clone https://github.com/Computer-Kurzweil/kochsnowflake.git
+cd kochsnowflake
 ./mvnw
 ```
