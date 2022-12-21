@@ -8,15 +8,14 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
  * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
- * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
- * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
- * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
- *
- * @see KochSnowflakeModel
  * @see KochSnowflakeFrame
+ * @see KochSnowflakeModel
  *
  * @see Thread
  * @see Runnable
+ *
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake/">Maven Project Reports</a>
  *
  * Date: 05.02.2006
  * Time: 00:36:20
@@ -24,23 +23,23 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 public class ControllerThread extends Thread implements Runnable {
 
     private volatile KochSnowflakeModel model;
-    private volatile KochSnowflakeFrame tab;
+    private volatile KochSnowflakeFrame view;
 
     private final int threadSleepTtime;
     private volatile Boolean goOn;
 
-    public ControllerThread(KochSnowflakeFrame tab) {
-        this.tab = tab;
-        this.model = this.tab.getModel();
+    public ControllerThread(KochSnowflakeFrame view) {
+        this.view = view;
+        this.model = this.view.getModel();
         goOn = Boolean.TRUE;
-        this.threadSleepTtime = this.tab.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
+        this.threadSleepTtime = this.view.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
     }
 
     public void run() {
         do {
             if(this.model.step()){
-                tab.getCanvas().repaint();
-                tab.repaint();
+                view.getCanvas().repaint();
+                view.repaint();
             }
             try {
                 sleep( this.threadSleepTtime);

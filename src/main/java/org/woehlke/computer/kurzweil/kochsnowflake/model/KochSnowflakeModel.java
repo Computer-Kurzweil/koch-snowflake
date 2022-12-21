@@ -14,11 +14,12 @@ import java.io.Serializable;
  * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
- * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
- * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
- *
  * @see ComputerKurzweilProperties
  * @see KochSnowflakeFrame
+ * @see LinkedListNodeContainer
+ *
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake/">Maven Project Reports</a>
  *
  * Created by tw on 16.12.2019.
  */

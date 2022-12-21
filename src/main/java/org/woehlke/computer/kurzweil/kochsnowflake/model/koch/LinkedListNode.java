@@ -5,6 +5,16 @@ import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
 
 import java.io.Serializable;
 
+/**
+ * Mandelbrot Set drawn by a Turing Machine.
+ * (C) 2006 - 2022 Thomas Woehlke.
+ * @author Thomas Woehlke
+ *
+ * @see LatticeVector
+ *
+ * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/kochsnowflake/">Maven Project Reports</a>
+ */
 @Getter
 @Setter
 @ToString
