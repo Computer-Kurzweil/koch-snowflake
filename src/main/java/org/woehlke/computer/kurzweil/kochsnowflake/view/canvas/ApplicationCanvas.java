@@ -50,7 +50,7 @@ public class ApplicationCanvas extends JComponent {
         super.paintComponent(g);
         super.setBackground(Color.BLACK);
         g.setColor(Color.BLACK);
-        g.drawRect(
+        g.fillRect(
            0,0, this.model.getWorldDimensions().getWidth(),  this.model.getWorldDimensions().getHeight()
         );
         g.setColor(Color.RED);
