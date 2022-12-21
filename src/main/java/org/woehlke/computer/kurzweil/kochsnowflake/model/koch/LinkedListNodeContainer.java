@@ -10,8 +10,8 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 import java.io.Serializable;
 
 /**
- * Mandelbrot Set drawn by a Turing Machine.
- * (C) 2006 - 2022 Thomas Woehlke.
+ * Koch Snowflake. A Fractal with self self-similarity.
+ * (C) 2006 - 2022 Thomas Woehlke
  * @author Thomas Woehlke
  *
  * @see ComputerKurzweilProperties

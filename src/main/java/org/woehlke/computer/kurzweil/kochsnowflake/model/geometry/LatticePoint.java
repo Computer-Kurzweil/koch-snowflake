@@ -11,8 +11,8 @@ import java.io.Serializable;
 /**
  * A Point is used to define the Position of Cell or as a Vector for defining Dimensions.
  *
- * Mandelbrot Set drawn by a Turing Machine.
- * (C) 2006 - 2022 Thomas Woehlke.
+ * Koch Snowflake. A Fractal with self self-similarity.
+ * (C) 2006 - 2022 Thomas Woehlke
  * @author Thomas Woehlke
  *
  * @see ComputerKurzweilProperties

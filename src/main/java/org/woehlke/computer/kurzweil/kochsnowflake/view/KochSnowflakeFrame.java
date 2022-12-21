@@ -19,8 +19,8 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * Mandelbrot Set drawn by a Turing Machine. Click to see corresponding Julia set.
- * (C) 2006 - 2022 Thomas Woehlke.
+ * Koch Snowflake. A Fractal with self self-similarity.
+ * (C) 2006 - 2022 Thomas Woehlke
  * @author Thomas Woehlke
  *
  * @see ControllerThread
