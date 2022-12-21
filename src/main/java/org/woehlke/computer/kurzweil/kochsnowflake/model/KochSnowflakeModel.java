@@ -31,11 +31,11 @@ public class KochSnowflakeModel {
     public KochSnowflakeModel(ApplicationFrame tab) {
         ComputerKurzweilProperties config = tab.getConfig();
         this.tab = tab;
-        this.linkedListNodeContainer = new LinkedListNodeContainer(tab);
         int scale = config.getKochsnowflake().getView().getScale();
         int x = scale * config.getKochsnowflake().getView().getWidth();
         int y = scale * config.getKochsnowflake().getView().getHeight();
         this.worldDimensions = LatticeDimension.of(x,y);
+        this.linkedListNodeContainer = new LinkedListNodeContainer(tab);
     }
 
     public synchronized boolean step() {
