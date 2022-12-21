@@ -31,15 +31,15 @@ a finite area, but has an infinite perimeter.
 
 ### first stage is an equilateral triangle
 
-![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen01.png)
+![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen001.png)
 
 ### each successive stage is formed by adding outward bends to each side of the previous stage
 
-![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen02.png)
+![Running around the Edge of the Mandelbrot Set](src/main/resources/img/screen002.png)
 
 ### each successive stage is formed by adding outward bends to each side of the previous stage
 
-![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen03.png)
+![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen003.png)
 
 
 ### Repositories
