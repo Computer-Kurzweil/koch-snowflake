@@ -5,7 +5,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProper
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 import java.io.Serializable;
 
@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
  * @see ComputerKurzweilProperties
- * @see ApplicationFrame
+ * @see KochSnowflakeFrame
  *
  * Created by tw on 16.12.2019.
  */
@@ -27,12 +27,12 @@ public class KochSnowflakeModel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    private volatile ApplicationFrame tab;
+    private volatile KochSnowflakeFrame tab;
     private volatile LinkedListNodeContainer linkedListNodeContainer;
 
     private final LatticeDimension worldDimensions;
 
-    public KochSnowflakeModel(ApplicationFrame tab) {
+    public KochSnowflakeModel(KochSnowflakeFrame tab) {
         this.tab = tab;
         ComputerKurzweilProperties config = tab.getConfig();
         int scale = config.getKochsnowflake().getView().getScale();

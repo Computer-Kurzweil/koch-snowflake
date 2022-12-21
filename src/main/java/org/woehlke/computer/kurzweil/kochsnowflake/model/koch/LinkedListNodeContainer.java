@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class LinkedListNodeContainer implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    private final ApplicationFrame tab;
+    private final KochSnowflakeFrame tab;
 
     private final LatticeDimension worldDimensions;
 
@@ -21,7 +21,7 @@ public class LinkedListNodeContainer implements Serializable {
 
     private LinkedListNode currentNode;
 
-    public LinkedListNodeContainer(ApplicationFrame tab, LatticeDimension worldDimensions){
+    public LinkedListNodeContainer(KochSnowflakeFrame tab, LatticeDimension worldDimensions){
         this.tab = tab;
         this.worldDimensions = worldDimensions;
     }

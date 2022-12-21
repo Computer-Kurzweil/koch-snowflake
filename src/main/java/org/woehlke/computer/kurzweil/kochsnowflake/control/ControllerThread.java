@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.control;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -13,7 +13,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
  * @see KochSnowflakeModel
- * @see ApplicationFrame
+ * @see KochSnowflakeFrame
  *
  * @see Thread
  * @see Runnable
@@ -24,12 +24,12 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 public class ControllerThread extends Thread implements Runnable {
 
     private volatile KochSnowflakeModel model;
-    private volatile ApplicationFrame tab;
+    private volatile KochSnowflakeFrame tab;
 
     private final int threadSleepTtime;
     private volatile Boolean goOn;
 
-    public ControllerThread(ApplicationFrame tab) {
+    public ControllerThread(KochSnowflakeFrame tab) {
         this.tab = tab;
         this.model = this.tab.getModel();
         goOn = Boolean.TRUE;

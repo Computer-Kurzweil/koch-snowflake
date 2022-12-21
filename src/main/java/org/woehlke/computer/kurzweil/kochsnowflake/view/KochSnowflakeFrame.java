@@ -42,7 +42,7 @@ import java.io.Serializable;
  * Time: 18:47:46
  */
 @Getter
-public class ApplicationFrame extends JFrame implements ImageObserver,
+public class KochSnowflakeFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
         Accessible,
@@ -61,7 +61,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile LatticeRectangle rectangleBounds;
     private final ComputerKurzweilProperties config;
 
-    public ApplicationFrame(ComputerKurzweilProperties config) {
+    public KochSnowflakeFrame(ComputerKurzweilProperties config) {
         super(config.getKochsnowflake().getView().getTitle());
         this.config = config;
         this.model = new KochSnowflakeModel(this);

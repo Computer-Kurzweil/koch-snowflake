@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.kochsnowflake.view.canvas;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNode;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +35,7 @@ public class ApplicationCanvas extends JComponent {
     private volatile KochSnowflakeModel model;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(ApplicationFrame tab) {
+    public ApplicationCanvas(KochSnowflakeFrame tab) {
         this.model = tab.getModel();
         int width = this.model.getWorldDimensions().getWidth();
         int height = this.model.getWorldDimensions().getHeight();

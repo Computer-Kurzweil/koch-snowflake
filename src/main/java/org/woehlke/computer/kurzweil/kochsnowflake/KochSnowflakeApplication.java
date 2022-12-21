@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -9,7 +9,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
- * @see ApplicationFrame
+ * @see KochSnowflakeFrame
  * @see ComputerKurzweilProperties
  *
  * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
@@ -18,13 +18,13 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  */
 public class KochSnowflakeApplication {
 
-    private final ApplicationFrame frame;
+    private final KochSnowflakeFrame frame;
 
     private KochSnowflakeApplication() {
         String conf = "application.yml";
         String jarPath = "target/kochsnowflake.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
-        frame = new ApplicationFrame(config);
+        frame = new KochSnowflakeFrame(config);
     }
 
     public void start(){
