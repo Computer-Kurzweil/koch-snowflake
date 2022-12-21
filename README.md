@@ -2,7 +2,7 @@
 
 [![Java CI with Maven](https://github.com/Computer-Kurzweil/kochsnowflake/actions/workflows/maven.yml/badge.svg)](https://github.com/Computer-Kurzweil/kochsnowflake/actions/workflows/maven.yml)
 
-**a fractal with self self-similarity**
+**a fractal with self-similarity**
 
 ## Abstract: Koch snowflake
 
