@@ -5,7 +5,6 @@ import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProper
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.turing.KochSnowflakeTuringMachine;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
 /**
@@ -13,11 +12,8 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
- * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
- *
- * @see KochSnowflakeTuringMachine
  *
  * @see ComputerKurzweilProperties
  * @see ApplicationFrame
