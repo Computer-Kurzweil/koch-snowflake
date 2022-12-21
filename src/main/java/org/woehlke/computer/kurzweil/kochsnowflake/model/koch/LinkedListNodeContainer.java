@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.model.koch;
 
 import lombok.Getter;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
@@ -14,24 +15,27 @@ public class LinkedListNodeContainer implements Serializable {
 
     private final ApplicationFrame tab;
 
+    private final LatticeDimension worldDimensions;
+
     private LinkedListNode startNode;
 
     private LinkedListNode currentNode;
 
-    public LinkedListNodeContainer(ApplicationFrame tab){
+    public LinkedListNodeContainer(ApplicationFrame tab, LatticeDimension worldDimensions){
         this.tab = tab;
+        this.worldDimensions = worldDimensions;
     }
 
     public void start(){
         int padding=10;
-        int x1=10;
-        int x2=this.tab.getModel().getWorldDimensions().getWidth()/2;
-        int x3=this.tab.getModel().getWorldDimensions().getHeight()-padding;
-        int y1=10;
-        int y3=this.tab.getModel().getWorldDimensions().getHeight()-padding;
-        LatticePoint point1 = new LatticePoint(x1,y3);
-        LatticePoint point2 = new LatticePoint(x2,y1);
-        LatticePoint point3 = new LatticePoint(x3,y3);
+        int x1 = padding;
+        int x2 = this.worldDimensions.getWidth()/2;
+        int x3 = this.worldDimensions.getHeight()-padding;
+        int y1 = this.worldDimensions.getHeight()-padding;
+        int y2 = padding;
+        LatticePoint point1 = new LatticePoint(x1,y1);
+        LatticePoint point2 = new LatticePoint(x2,y2);
+        LatticePoint point3 = new LatticePoint(x3,y1);
         LatticeVector v1 = LatticeVector.ofTwoPoints(point1,point2);
         LatticeVector v2 = LatticeVector.ofTwoPoints(point2,point3);
         LatticeVector v3 = LatticeVector.ofTwoPoints(point3,point1);

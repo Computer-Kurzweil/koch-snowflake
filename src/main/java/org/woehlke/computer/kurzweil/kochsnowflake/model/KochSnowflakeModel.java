@@ -7,6 +7,8 @@ import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
+import java.io.Serializable;
+
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  * (C) 2006 - 2022 Thomas Woehlke.
@@ -21,21 +23,23 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * Created by tw on 16.12.2019.
  */
 @Getter
-public class KochSnowflakeModel {
+public class KochSnowflakeModel implements Serializable {
 
-    private volatile LinkedListNodeContainer linkedListNodeContainer;
+    static final long serialVersionUID = 242L;
+
     private volatile ApplicationFrame tab;
+    private volatile LinkedListNodeContainer linkedListNodeContainer;
 
     private final LatticeDimension worldDimensions;
 
     public KochSnowflakeModel(ApplicationFrame tab) {
-        ComputerKurzweilProperties config = tab.getConfig();
         this.tab = tab;
+        ComputerKurzweilProperties config = tab.getConfig();
         int scale = config.getKochsnowflake().getView().getScale();
-        int x = scale * config.getKochsnowflake().getView().getWidth();
-        int y = scale * config.getKochsnowflake().getView().getHeight();
-        this.worldDimensions = LatticeDimension.of(x,y);
-        this.linkedListNodeContainer = new LinkedListNodeContainer(tab);
+        int width = scale * config.getKochsnowflake().getView().getWidth();
+        int height = scale * config.getKochsnowflake().getView().getHeight();
+        this.worldDimensions = LatticeDimension.of(width,height);
+        this.linkedListNodeContainer = new LinkedListNodeContainer(tab, this.worldDimensions);
     }
 
     public synchronized boolean step() {

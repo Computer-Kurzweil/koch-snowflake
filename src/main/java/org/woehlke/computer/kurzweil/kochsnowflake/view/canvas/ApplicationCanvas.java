@@ -49,30 +49,22 @@ public class ApplicationCanvas extends JComponent {
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
         super.setBackground(Color.BLACK);
+        g.setColor(Color.BLACK);
+        g.drawRect(
+           0,0, this.model.getWorldDimensions().getWidth(),  this.model.getWorldDimensions().getHeight()
+        );
+        g.setColor(Color.RED);
         LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();
-        LinkedListNode line = model.getLinkedListNodeContainer().getStartNode();
+        LinkedListNode currentNode = model.getLinkedListNodeContainer().getStartNode();
         do {
             g.drawLine(
-                line.getLine().getStart().getX(),
-                line.getLine().getStart().getY(),
-                line.getLine().getRelative().getX(),
-                line.getLine().getRelative().getY()
+                currentNode.getLine().getStart().getX(),
+                currentNode.getLine().getStart().getY(),
+                currentNode.getNext().getLine().getStart().getX(),
+                currentNode.getNext().getLine().getStart().getY()
             );
-            line = model.getLinkedListNodeContainer().getNext();
-        } while (startNode.equals(line));
-        /*
-        int red = 0;
-        int green = 0;
-        int blue = 0;
-        for(int y = 0; y < app.getWorldDimensions().getY(); y++){
-            for(int x = 0; x < app.getWorldDimensions().getX(); x++){
-                blue = (((app.getCellStatusFor(x,y))*4)%256);
-                Color stateColor = new Color(red, green, blue);
-                g.setColor(stateColor);
-                g.drawLine(x,y,x,y);
-            }
-        }
-        */
+            currentNode = model.getLinkedListNodeContainer().getNext();
+        } while (! startNode.equals(currentNode));
     }
 
     public void update(Graphics g) {
