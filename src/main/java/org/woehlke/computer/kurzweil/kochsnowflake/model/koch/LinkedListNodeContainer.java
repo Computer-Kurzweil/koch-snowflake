@@ -1,11 +1,13 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.model.koch;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
 import java.io.Serializable;
 
+@Getter
 public class LinkedListNodeContainer implements Serializable {
 
     private final ApplicationFrame tab;
@@ -44,5 +46,10 @@ public class LinkedListNodeContainer implements Serializable {
         node3.setPrevious(node2);
         startNode.setPrevious(node3);
         currentNode = startNode;
+    }
+
+    public LinkedListNode getNext(){
+        currentNode = currentNode.getNext();
+        return currentNode;
     }
 }

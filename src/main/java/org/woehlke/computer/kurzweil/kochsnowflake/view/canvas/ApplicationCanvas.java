@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.view.canvas;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +47,18 @@ public class ApplicationCanvas extends JComponent {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
+        super.setBackground(Color.BLACK);
+        LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();
+        LinkedListNode line = model.getLinkedListNodeContainer().getStartNode();
+        do {
+            g.drawLine(
+                line.getLine().getStart().getX(),
+                line.getLine().getStart().getY(),
+                line.getLine().getRelative().getX(),
+                line.getLine().getRelative().getY()
+            );
+            line = model.getLinkedListNodeContainer().getNext();
+        } while (startNode.equals(line));
         /*
         int red = 0;
         int green = 0;
