@@ -3,7 +3,8 @@ package org.woehlke.computer.kurzweil.kochsnowflake.view;
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.control.ControllerThread;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.KochSnowflakeModel;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.common.Point;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeRectangle;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.canvas.ApplicationCanvas;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.labels.PanelCopyright;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.labels.PanelSubtitle;
@@ -55,8 +56,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile ControllerThread controller;
     private volatile ApplicationCanvas canvas;
     private volatile KochSnowflakeModel model;
-    private volatile Rectangle rectangleBounds;
-    private volatile Dimension dimensionSize;
+    private volatile LatticeRectangle rectangleBounds;
 
     public ApplicationFrame(ComputerKurzweilProperties config) {
         super(config.getKochsnowflake().getView().getTitle());
@@ -104,7 +104,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Point c = new Point(e.getX(), e.getY());
+        LatticePoint c = new LatticePoint(e.getX(), e.getY());
         this.model.click(c);
         showMe();
     }
@@ -135,11 +135,23 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         int mywidth = Double.valueOf(width).intValue();
         int mystartX = Double.valueOf(startX).intValue();
         int mystartY = Double.valueOf(startY).intValue();
-        this.rectangleBounds = new Rectangle(mystartX, mystartY, mywidth, myheight);
-        this.dimensionSize = new Dimension(mywidth, myheight);
-        this.setBounds(this.rectangleBounds);
-        this.setSize(this.dimensionSize);
-        this.setPreferredSize(this.dimensionSize);
+        this.rectangleBounds = LatticeRectangle.of(mystartX, mystartY, mywidth, myheight);
+        this.setBounds(
+            this.rectangleBounds.getStart().getX(),
+            this.rectangleBounds.getStart().getY(),
+            this.rectangleBounds.getDimension().getWidth(),
+            this.rectangleBounds.getDimension().getHeight()
+        );
+        this.setSize(
+            this.rectangleBounds.getDimension().getWidth(),
+            this.rectangleBounds.getDimension().getHeight()
+        );
+        this.setPreferredSize(
+            new Dimension(
+                this.rectangleBounds.getDimension().getWidth(),
+                this.rectangleBounds.getDimension().getHeight()
+            )
+        );
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         toFront();
@@ -150,9 +162,22 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
      */
     public void showMe() {
         this.pack();
-        this.setBounds(this.rectangleBounds);
-        this.setSize(this.dimensionSize);
-        this.setPreferredSize(this.dimensionSize);
+        this.setBounds(
+            this.rectangleBounds.getStart().getX(),
+            this.rectangleBounds.getStart().getY(),
+            this.rectangleBounds.getDimension().getWidth(),
+            this.rectangleBounds.getDimension().getHeight()
+        );
+        this.setSize(
+            this.rectangleBounds.getDimension().getWidth(),
+            this.rectangleBounds.getDimension().getHeight()
+        );
+        this.setPreferredSize(
+            new Dimension(
+                this.rectangleBounds.getDimension().getWidth(),
+                this.rectangleBounds.getDimension().getHeight()
+            )
+        );
         this.setVisible(true);
         this.toFront();
     }

@@ -30,13 +30,13 @@ public class ApplicationCanvas extends JComponent {
     @Serial
     private final static long serialVersionUID = 242L;
 
-    private volatile KochSnowflakeModel app;
+    private volatile KochSnowflakeModel model;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(KochSnowflakeModel app) {
-        this.app = app;
-        int width = this.app.getWorldDimensions().getWidth();
-        int height = this.app.getWorldDimensions().getHeight();
+    public ApplicationCanvas(KochSnowflakeModel model) {
+        this.model = model;
+        int width = this.model.getWorldDimensions().getWidth();
+        int height = this.model.getWorldDimensions().getHeight();
         this.preferredSize = new Dimension(width, height);
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
@@ -46,6 +46,7 @@ public class ApplicationCanvas extends JComponent {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
+        /*
         int red = 0;
         int green = 0;
         int blue = 0;
@@ -57,6 +58,7 @@ public class ApplicationCanvas extends JComponent {
                 g.drawLine(x,y,x,y);
             }
         }
+        */
     }
 
     public void update(Graphics g) {

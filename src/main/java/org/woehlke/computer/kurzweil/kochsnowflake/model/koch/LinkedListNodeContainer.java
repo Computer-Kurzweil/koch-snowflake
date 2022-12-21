@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.kochsnowflake.model;
+package org.woehlke.computer.kurzweil.kochsnowflake.model.koch;
 
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;

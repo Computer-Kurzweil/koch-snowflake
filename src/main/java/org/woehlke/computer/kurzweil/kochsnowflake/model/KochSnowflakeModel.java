@@ -1,9 +1,10 @@
 package org.woehlke.computer.kurzweil.kochsnowflake.model;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.fractal.GaussianNumberPlane;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.common.Point;
-import org.woehlke.computer.kurzweil.kochsnowflake.view.state.ApplicationStateMachine;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
+import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.turing.KochSnowflakeTuringMachine;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
 
@@ -16,75 +17,42 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.ApplicationFrame;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
- * @see GaussianNumberPlane
  * @see KochSnowflakeTuringMachine
- * @see ApplicationStateMachine
  *
  * @see ComputerKurzweilProperties
  * @see ApplicationFrame
  *
  * Created by tw on 16.12.2019.
  */
+@Getter
 public class KochSnowflakeModel {
 
-    private volatile GaussianNumberPlane gaussianNumberPlane;
-    private volatile KochSnowflakeTuringMachine kochSnowflakeTuringMachine;
-    private volatile ApplicationStateMachine applicationStateMachine;
-
     private volatile LinkedListNodeContainer linkedListNodeContainer;
-
     private volatile ComputerKurzweilProperties config;
-    private volatile ApplicationFrame frame;
+    private volatile ApplicationFrame tab;
 
-    public KochSnowflakeModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
+    private final LatticeDimension worldDimensions;
+
+    public KochSnowflakeModel(ComputerKurzweilProperties config, ApplicationFrame tab) {
         this.config = config;
-        this.frame = frame;
-        this.linkedListNodeContainer = new LinkedListNodeContainer(frame);
-        this.gaussianNumberPlane = new GaussianNumberPlane(this);
-        this.kochSnowflakeTuringMachine = new KochSnowflakeTuringMachine(this);
-        this.applicationStateMachine = new ApplicationStateMachine();
-    }
-
-    public synchronized boolean click(Point c) {
-        applicationStateMachine.click();
-        boolean repaint = true;
-        switch (applicationStateMachine.getApplicationState()) {
-            case MANDELBROT:
-                kochSnowflakeTuringMachine.start();
-                repaint = false;
-                break;
-            case JULIA_SET:
-                gaussianNumberPlane.computeTheJuliaSetFor(c);
-                break;
-        }
-        return repaint;
+        this.tab = tab;
+        this.linkedListNodeContainer = new LinkedListNodeContainer(tab);
+        int scale = config.getKochsnowflake().getView().getScale();
+        int x = scale * config.getKochsnowflake().getView().getWidth();
+        int y = scale * config.getKochsnowflake().getView().getHeight();
+        this.worldDimensions = LatticeDimension.of(x,y);
     }
 
     public synchronized boolean step() {
         boolean repaint = false;
-        switch (applicationStateMachine.getApplicationState()) {
-            case MANDELBROT:
-                repaint = kochSnowflakeTuringMachine.step();
-                break;
-            case JULIA_SET:
-                break;
-        }
         return repaint;
     }
 
-    public synchronized int getCellStatusFor(int x, int y) {
-        return gaussianNumberPlane.getCellStatusFor(x, y);
+    public void click(LatticePoint c) {
+
     }
 
-    public Point getWorldDimensions() {
-        int scale = config.getMandelbrotZoom().getView().getScale();
-        int width = scale * config.getMandelbrotJulia().getView().getWidth();
-        int height = scale * config.getMandelbrotJulia().getView().getHeight();
-        return new Point(width, height);
-    }
+    public void start(){
 
-    public GaussianNumberPlane getGaussianNumberPlane() {
-        return gaussianNumberPlane;
     }
-
 }
