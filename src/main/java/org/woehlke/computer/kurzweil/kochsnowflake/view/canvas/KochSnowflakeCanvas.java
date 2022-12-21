@@ -40,6 +40,8 @@ public class KochSnowflakeCanvas extends JComponent {
         int width = this.model.getWorldDimensions().getWidth();
         int height = this.model.getWorldDimensions().getHeight();
         this.preferredSize = new Dimension(width, height);
+        Rectangle bounds = new Rectangle(0,0,width,height);
+        this.setBounds(bounds);
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
     }
@@ -51,7 +53,8 @@ public class KochSnowflakeCanvas extends JComponent {
         super.setBackground(Color.BLACK);
         g.setColor(Color.BLACK);
         g.fillRect(
-           0,0, this.model.getWorldDimensions().getWidth(),  this.model.getWorldDimensions().getHeight()
+           0,0, this.model.getWorldDimensions().getWidth(),
+            this.model.getWorldDimensions().getHeight()
         );
         g.setColor(Color.RED);
         LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();

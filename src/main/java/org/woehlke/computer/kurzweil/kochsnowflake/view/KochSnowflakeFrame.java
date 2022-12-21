@@ -130,8 +130,10 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
     public void showMeInit() {
         pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = this.rootPane.getWidth();
-        double height  = this.canvas.getHeight() + 120;
+        //double width = this.rootPane.getContentPane().getWidth();
+        //double height  = this.canvas.getHeight() + 120;
+        double width = this.model.getWorldDimensions().getWidth() + 16;
+        double height  = this.model.getWorldDimensions().getHeight() + 120;
         double startX = (screenSize.getWidth() - width) / 2d;
         double startY = (screenSize.getHeight() - height) / 2d;
         int myheight = Double.valueOf(height).intValue();
@@ -195,5 +197,6 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
 
     public void start() {
         this.model.start();
+        showMe();
     }
 }

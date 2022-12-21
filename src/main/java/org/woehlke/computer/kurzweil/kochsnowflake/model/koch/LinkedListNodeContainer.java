@@ -27,7 +27,7 @@ public class LinkedListNodeContainer implements Serializable {
     }
 
     public void start(){
-        int padding=10;
+        int padding = 30;
         int x1 = padding;
         int x2 = this.worldDimensions.getWidth()/2;
         int x3 = this.worldDimensions.getWidth() - padding;
