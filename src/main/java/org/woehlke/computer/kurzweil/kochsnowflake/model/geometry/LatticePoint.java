@@ -141,12 +141,39 @@ public class LatticePoint implements Serializable {
      */
     public static LatticePoint rotationMatrix(LatticePoint thisPoint, LatticePoint nextPoint){
         LatticePoint delta = LatticePoint.delta(thisPoint, nextPoint);
+        double angle = 45.0d;
+        if(thisPoint.getY()!=nextPoint.getY()){
+            System.out.println("thisPoint: "+thisPoint.toString());
+            System.out.println("nextPoint: "+nextPoint.toString());
+        }
         int x = delta.getX();
         int y = delta.getY();
-        int xx = (int)(x * Math.cos(45d) - y * Math.sin(45d));
-        int yy = (int)(x * Math.sin(45d) + y * Math.cos(45d));
+        int xx = (int)(x * Math.cos(angle) - y * Math.sin(angle));
+        int yy = (int)(x * Math.sin(angle) + y * Math.cos(angle));
         LatticePoint result = new LatticePoint(xx,yy);
         nextPoint.add(result);
         return nextPoint;
+    }
+
+    public LatticePoint[] getNewParts(LatticePoint nextPoint){
+        int x0 = this.getX();
+        int y0 = this.getY();
+        int x4 = nextPoint.getX();
+        int y4 = nextPoint.getY();
+        // TODO: this parting is not correct:
+        int x1 = x0 + (((x4 - x0) * 1) / 3);
+        int x2 = x0 + (((x4 - x0) * 2) / 3);
+        int x3 = x0 + (((x4 - x0) * 2) / 3);
+        int y1 = y0 + (((y4 - y0) * 1) / 3);
+        int y2 = y0 + (((y4 - y0) * 2) / 3);
+        int y3 = y0 + (((y4 - y0) * 2) / 3);
+        LatticePoint[] points = new LatticePoint[5];
+        points[0] = this.copy();
+        points[1] = new LatticePoint(x1, y1);
+        points[2] = new LatticePoint(x2, y2);
+        points[3] = new LatticePoint(x3, y3);
+        points[4] = nextPoint.copy();
+        points[2] = LatticePoint.rotationMatrix( points[1], points[2]);
+        return points;
     }
 }

@@ -34,12 +34,13 @@ public class ControllerThread extends Thread implements Runnable {
         this.model = this.view.getModel();
         goOn = Boolean.TRUE;
         this.threadSleepTtime = this.view.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
-        this.maxIterations = this.view.getConfig().getKochsnowflake().getControl().getMaxIterations();
+        //this.maxIterations = this.view.getConfig().getKochsnowflake().getControl().getMaxIterations();
+        this.maxIterations = 2;
     }
 
     public void run() {
         int i = 0;
-        do {
+        while (goOn() &&  i < this.maxIterations) {
             i++;
             if(this.model.step()){
                 view.getCanvas().repaint();
@@ -50,7 +51,7 @@ public class ControllerThread extends Thread implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        } while (goOn() &&  i < this.maxIterations);
+        }
     }
 
     public synchronized boolean goOn() {
