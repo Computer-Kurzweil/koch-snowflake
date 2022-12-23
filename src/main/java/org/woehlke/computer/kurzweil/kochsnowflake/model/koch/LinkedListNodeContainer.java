@@ -46,7 +46,7 @@ public class LinkedListNodeContainer implements Serializable {
         int x1 = padding;
         int x2 = this.worldDimensions.getWidth()/2;
         int x3 = this.worldDimensions.getWidth() - padding;
-        int y1 = this.worldDimensions.getHeight() - padding;
+        int y1 = (this.worldDimensions.getHeight()*2/3) - padding;
         int y2 = padding;
         LatticePoint point1 = new LatticePoint(x1,y1);
         LatticePoint point2 = new LatticePoint(x2,y2);
@@ -70,7 +70,7 @@ public class LinkedListNodeContainer implements Serializable {
     }
 
     public boolean step() {
-        System.out.println("step()");
+        System.out.println("step");
         boolean repaint = true;
         currentNode = startNode;
         do {
