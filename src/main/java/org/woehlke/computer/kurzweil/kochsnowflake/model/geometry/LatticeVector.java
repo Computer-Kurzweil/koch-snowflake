@@ -51,7 +51,7 @@ public class LatticeVector implements Serializable {
     public static LatticeVector ofTwoPoints(LatticePoint startpoint, LatticePoint endpoint) {
         LatticeVector result = new LatticeVector();
         LatticePoint relative = endpoint.copy();
-        relative.mninus(startpoint.copy());
+        relative.minus(startpoint.copy());
         result.setStart(startpoint);
         result.setRelative(relative);
         return result;

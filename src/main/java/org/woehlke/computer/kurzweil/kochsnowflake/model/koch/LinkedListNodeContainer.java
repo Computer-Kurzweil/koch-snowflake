@@ -43,21 +43,16 @@ public class LinkedListNodeContainer implements Serializable {
 
     public void start(){
         int padding = 30;
-
         int paddingX = (this.worldDimensions.getWidth()-this.worldDimensions.getHeight())/2;
-
         int x1 = paddingX + padding;
         int x2 = paddingX + this.worldDimensions.getHeight()/2;
         int x3 = paddingX + this.worldDimensions.getHeight() - padding;
-
         int myHeight01 = this.worldDimensions.getHeight() - (2*padding);
         int myHeight02 = (myHeight01/5)+((myHeight01*3)/5);
         int myHeight = (int)((Math.sqrt(3.0d)/2.0d) * (double) myHeight02);
-
         int y1 = padding + myHeight;
         int y2 = padding;
         int y3 = padding + myHeight;
-
         LatticePoint point1 = new LatticePoint(x1,y1);
         LatticePoint point2 = new LatticePoint(x2,y2);
         LatticePoint point3 = new LatticePoint(x3,y3);
@@ -83,14 +78,17 @@ public class LinkedListNodeContainer implements Serializable {
             LatticePoint[] points = currentNode.getPoint().getNewParts(workNodeNext.getPoint());
             LinkedListNode[] node = new LinkedListNode[5];
             node[0] = currentNode;
-            for(int i=1; i<5; i++){
-                node[i] = new LinkedListNode();
-                node[i].setPoint(points[i]);
-            }
-            for(int i=0; i<4; i++){
-                node[i].setNext(node[i+1]);
-            }
-            node[4].setNext(workNodeNext);
+            node[1] = new LinkedListNode();
+            node[2] = new LinkedListNode();
+            node[3] = new LinkedListNode();
+            node[4] = workNodeNext;
+            node[1].setPoint(points[1]);
+            node[2].setPoint(points[2]);
+            node[3].setPoint(points[3]);
+            node[0].setNext(node[1]);
+            node[1].setNext(node[2]);
+            node[2].setNext(node[3]);
+            node[3].setNext(node[4]);
             currentNode = workNodeNext;
         } while (!currentNode.equals(startNode));
         return repaint;

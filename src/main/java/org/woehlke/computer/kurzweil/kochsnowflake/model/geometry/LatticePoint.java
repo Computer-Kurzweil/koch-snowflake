@@ -74,24 +74,21 @@ public class LatticePoint implements Serializable {
         return new LatticePoint(x,y);
     }
 
-    public void substract(LatticePoint p) {
-        this.x += p.getX();
-        this.y += p.getY();
-    }
-
-    public void mninus(LatticePoint p) {
-        int helpX = this.x;
-        int helpY = this.y;
-        this.x = p.getX()-helpX;
-        this.y = p.getY()-helpY;
-
+    public LatticePoint minus(LatticePoint p) {
+        int x = this.getX() - p.getX();
+        int y = this.getY() - p.getY();
+        return new LatticePoint(x,y);
     }
 
     public LatticePoint delta(LatticePoint p) {
-        int helpX = this.x;
-        int helpY = this.y;
-        int x = p.getX()-helpX;
-        int y = p.getY()-helpY;
+        int x = p.getX() - this.x;
+        int y = p.getY() - this.y;
+        return new LatticePoint(x,y);
+    }
+
+    public LatticePoint scalarMultiplied(double scalar){
+        int x = (int)(this.getX()*scalar);
+        int y = (int)(this.getY()*scalar);
         return new LatticePoint(x,y);
     }
 
@@ -124,33 +121,12 @@ public class LatticePoint implements Serializable {
     }
 
     /**
-     * Get Neighbourhood.
-     * @param max - limit the dimensions of the world around
-     * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
-     */
-    public LatticePoint[] getNeighbourhood(LatticePoint max){
-        LatticePoint neighbourhood[] = new LatticePoint[9];
-        int maxX = max.getX();
-        int maxY = max.getY();
-        neighbourhood[0]= new LatticePoint((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[1]= new LatticePoint((this.x+maxX-1) % maxX,this.y);
-        neighbourhood[2]= new LatticePoint((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
-        neighbourhood[3]= new LatticePoint(this.x,(this.y+maxY-1) % maxY);
-        neighbourhood[4]= new LatticePoint(this.x,this.y);
-        neighbourhood[5]= new LatticePoint(this.x,(this.y+maxY+1) % maxY);
-        neighbourhood[6]= new LatticePoint((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[7]= new LatticePoint((this.x+maxX+1) % maxX,this.y);
-        neighbourhood[8]= new LatticePoint((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
-        return neighbourhood;
-    }
-
-    /**
      * @see <a href="https://en.wikipedia.org/wiki/Rotation_matrix/">Rotation matrix</a>
      */
-    public static LatticePoint rotationMatrix(LatticePoint thisPoint, LatticePoint nextPoint){
-        LatticePoint delta = LatticePoint.delta(thisPoint, nextPoint);
-        double angle = 45.0;
-        System.out.print("thisPoint: "+thisPoint.toString());
+    public LatticePoint rotationMatrix(LatticePoint nextPoint){
+        LatticePoint delta = this.delta(nextPoint);
+        double angle = -45.0;
+        System.out.print("thisPoint: "+this.toString());
         System.out.print(" nextPoint: "+nextPoint.toString());
         double x = delta.getX();
         double y = delta.getY();
@@ -158,9 +134,9 @@ public class LatticePoint implements Serializable {
         int yy = (int)(x * Math.sin(angle) + y * Math.cos(angle));
         LatticePoint delta2 = new LatticePoint(xx,yy);
         System.out.print(" --> delta2: "+delta2.toString());
-        thisPoint.add(delta2);
-        System.out.println(" --> nextPoint: "+nextPoint.toString());
-        return thisPoint;
+        LatticePoint result = this.add(delta2);
+        System.out.println(" --> result: "+result.toString());
+        return result;
     }
 
     public LatticePoint[] getNewParts(LatticePoint nextPoint){
@@ -173,14 +149,8 @@ public class LatticePoint implements Serializable {
         point[2] = this.add(delta2);
         point[3] = this.add(delta2);
         point[4] = nextPoint;
-        point[2] = LatticePoint.rotationMatrix(point[1], point[2]);
+        point[2] = point[1].rotationMatrix(point[2]);
         return point;
     }
 
-    public LatticePoint scalarMultiplied(double scalar){
-        LatticePoint o = this.copy();
-        o.setX((int)(o.getX()*scalar));
-        o.setY((int)(o.getY()*scalar));
-        return o;
-    }
 }
