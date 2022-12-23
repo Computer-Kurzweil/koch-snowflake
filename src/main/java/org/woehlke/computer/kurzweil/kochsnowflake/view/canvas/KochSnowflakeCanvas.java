@@ -80,7 +80,7 @@ public class KochSnowflakeCanvas extends JComponent {
                 currentNode.getNext().getPoint().getX(),
                 currentNode.getNext().getPoint().getY()
             );
-            currentNode = model.getLinkedListNodeContainer().getNext();
+            currentNode = currentNode.getNext();
         } while (! startNode.equals(currentNode));
     }
 

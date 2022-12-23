@@ -74,33 +74,25 @@ public class LinkedListNodeContainer implements Serializable {
         this.currentNode = this.startNode;
     }
 
-    public LinkedListNode getNext(){
-        currentNode = currentNode.getNext();
-        return currentNode;
-    }
-
     public boolean step() {
         System.out.println("step");
         boolean repaint = true;
-        currentNode = startNode;
+        this.currentNode = this.startNode;
         do {
-            LinkedListNode nextNode = this.currentNode.getNext();
-            LatticePoint[] points = this.currentNode.getPoint().getNewParts(nextNode.getPoint());
+            LinkedListNode workNodeNext = currentNode.getNext();
+            LatticePoint[] points = currentNode.getPoint().getNewParts(workNodeNext.getPoint());
             LinkedListNode[] node = new LinkedListNode[5];
-            node[0] = this.currentNode;
-            node[1] = new LinkedListNode();
-            node[2] = new LinkedListNode();
-            node[3] = new LinkedListNode();
-            node[4] = nextNode;
-            node[1].setPoint(points[1]);
-            node[2].setPoint(points[2]);
-            node[3].setPoint(points[3]);
-            node[0].setNext(node[1]);
-            node[1].setNext(node[2]);
-            node[2].setNext(node[3]);
-            node[3].setNext(node[4]);
-            this.currentNode = nextNode;
-        } while (!this.currentNode.equals(startNode));
+            node[0] = currentNode;
+            for(int i=1; i<5; i++){
+                node[i] = new LinkedListNode();
+                node[i].setPoint(points[i]);
+            }
+            for(int i=0; i<4; i++){
+                node[i].setNext(node[i+1]);
+            }
+            node[4].setNext(workNodeNext);
+            currentNode = workNodeNext;
+        } while (!currentNode.equals(startNode));
         return repaint;
     }
 

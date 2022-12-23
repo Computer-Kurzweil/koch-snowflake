@@ -68,9 +68,10 @@ public class LatticePoint implements Serializable {
         absoluteValue();
     }
 
-    public void add(LatticePoint p) {
-        this.x += p.getX();
-        this.y += p.getY();
+    public LatticePoint add(LatticePoint p) {
+        int x = this.getX() + p.getX();
+        int y = this.getY() + p.getY();
+        return new LatticePoint(x,y);
     }
 
     public void substract(LatticePoint p) {
@@ -83,6 +84,15 @@ public class LatticePoint implements Serializable {
         int helpY = this.y;
         this.x = p.getX()-helpX;
         this.y = p.getY()-helpY;
+
+    }
+
+    public LatticePoint delta(LatticePoint p) {
+        int helpX = this.x;
+        int helpY = this.y;
+        int x = p.getX()-helpX;
+        int y = p.getY()-helpY;
+        return new LatticePoint(x,y);
     }
 
     public void normalize(LatticePoint p) {
@@ -109,10 +119,8 @@ public class LatticePoint implements Serializable {
         return new LatticePoint(p.getWidth(), p.getHeight());
     }
 
-    public static LatticePoint delta(LatticePoint start, LatticePoint to) {
-        LatticePoint result = to.copy();
-        result.mninus(start);
-        return result;
+    public static LatticePoint delta(LatticePoint thisPoint, LatticePoint to) {
+        return thisPoint.delta(to);
     }
 
     /**
@@ -141,39 +149,38 @@ public class LatticePoint implements Serializable {
      */
     public static LatticePoint rotationMatrix(LatticePoint thisPoint, LatticePoint nextPoint){
         LatticePoint delta = LatticePoint.delta(thisPoint, nextPoint);
-        double angle = 45.0d;
-        if(thisPoint.getY()!=nextPoint.getY()){
-            System.out.println("thisPoint: "+thisPoint.toString());
-            System.out.println("nextPoint: "+nextPoint.toString());
-        }
-        int x = delta.getX();
-        int y = delta.getY();
+        double angle = 45.0;
+        System.out.print("thisPoint: "+thisPoint.toString());
+        System.out.print(" nextPoint: "+nextPoint.toString());
+        double x = delta.getX();
+        double y = delta.getY();
         int xx = (int)(x * Math.cos(angle) - y * Math.sin(angle));
         int yy = (int)(x * Math.sin(angle) + y * Math.cos(angle));
-        LatticePoint result = new LatticePoint(xx,yy);
-        nextPoint.add(result);
-        return nextPoint;
+        LatticePoint delta2 = new LatticePoint(xx,yy);
+        System.out.print(" --> delta2: "+delta2.toString());
+        thisPoint.add(delta2);
+        System.out.println(" --> nextPoint: "+nextPoint.toString());
+        return thisPoint;
     }
 
     public LatticePoint[] getNewParts(LatticePoint nextPoint){
-        int x0 = this.getX();
-        int y0 = this.getY();
-        int x4 = nextPoint.getX();
-        int y4 = nextPoint.getY();
-        // TODO: this parting is not correct:
-        int x1 = x0 + (((x4 - x0) * 1) / 3);
-        int x2 = x0 + (((x4 - x0) * 2) / 3);
-        int x3 = x0 + (((x4 - x0) * 2) / 3);
-        int y1 = y0 + (((y4 - y0) * 1) / 3);
-        int y2 = y0 + (((y4 - y0) * 2) / 3);
-        int y3 = y0 + (((y4 - y0) * 2) / 3);
-        LatticePoint[] points = new LatticePoint[5];
-        points[0] = this.copy();
-        points[1] = new LatticePoint(x1, y1);
-        points[2] = new LatticePoint(x2, y2);
-        points[3] = new LatticePoint(x3, y3);
-        points[4] = nextPoint.copy();
-        points[2] = LatticePoint.rotationMatrix( points[1], points[2]);
-        return points;
+        LatticePoint delta = LatticePoint.delta(this, nextPoint);
+        LatticePoint delta1 = delta.scalarMultiplied(1.0/3.0);
+        LatticePoint delta2 = delta.scalarMultiplied(2.0/3.0);
+        LatticePoint[] point = new LatticePoint[5];
+        point[0] = this.copy();
+        point[1] = this.add(delta1);
+        point[2] = this.add(delta2);
+        point[3] = this.add(delta2);
+        point[4] = nextPoint;
+        point[2] = LatticePoint.rotationMatrix(point[1], point[2]);
+        return point;
+    }
+
+    public LatticePoint scalarMultiplied(double scalar){
+        LatticePoint o = this.copy();
+        o.setX((int)(o.getX()*scalar));
+        o.setY((int)(o.getY()*scalar));
+        return o;
     }
 }
