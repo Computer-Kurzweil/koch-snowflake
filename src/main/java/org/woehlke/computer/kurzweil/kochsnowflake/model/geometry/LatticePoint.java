@@ -126,16 +126,16 @@ public class LatticePoint implements Serializable {
     public LatticePoint rotationMatrix(LatticePoint nextPoint){
         LatticePoint delta = this.delta(nextPoint);
         double angle = -45.0;
-        System.out.print("thisPoint: "+this.toString());
-        System.out.print(" nextPoint: "+nextPoint.toString());
+        //System.out.print("thisPoint: "+this.toString());
+        //System.out.print(" nextPoint: "+nextPoint.toString());
         double x = delta.getX();
         double y = delta.getY();
         int xx = (int)(x * Math.cos(angle) - y * Math.sin(angle));
         int yy = (int)(x * Math.sin(angle) + y * Math.cos(angle));
         LatticePoint delta2 = new LatticePoint(xx,yy);
-        System.out.print(" --> delta2: "+delta2.toString());
+        //System.out.print(" --> delta2: "+delta2.toString());
         LatticePoint result = this.add(delta2);
-        System.out.println(" --> result: "+result.toString());
+        //System.out.println(" --> result: "+result.toString());
         return result;
     }
 
