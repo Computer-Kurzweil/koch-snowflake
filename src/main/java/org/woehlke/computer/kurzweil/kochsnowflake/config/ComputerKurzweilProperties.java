@@ -605,6 +605,8 @@ public class ComputerKurzweilProperties implements Serializable {
             @NotNull
             private Integer threadSleepTime;
 
+            @NotNull
+            private Integer maxIterations;
         }
     }
 

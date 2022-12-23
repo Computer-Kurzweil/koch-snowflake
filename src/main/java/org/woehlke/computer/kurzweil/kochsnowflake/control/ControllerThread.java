@@ -26,6 +26,7 @@ public class ControllerThread extends Thread implements Runnable {
     private volatile KochSnowflakeFrame view;
 
     private final int threadSleepTtime;
+    private final int maxIterations;
     private volatile Boolean goOn;
 
     public ControllerThread(KochSnowflakeFrame view) {
@@ -33,10 +34,13 @@ public class ControllerThread extends Thread implements Runnable {
         this.model = this.view.getModel();
         goOn = Boolean.TRUE;
         this.threadSleepTtime = this.view.getConfig().getKochsnowflake().getControl().getThreadSleepTime();
+        this.maxIterations = this.view.getConfig().getKochsnowflake().getControl().getMaxIterations();
     }
 
     public void run() {
+        int i = 0;
         do {
+            i++;
             if(this.model.step()){
                 view.getCanvas().repaint();
                 view.repaint();
@@ -46,7 +50,7 @@ public class ControllerThread extends Thread implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        } while (goOn());
+        } while (goOn() &&  i < this.maxIterations);
     }
 
     public synchronized boolean goOn() {

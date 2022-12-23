@@ -58,12 +58,19 @@ public class KochSnowflakeCanvas extends JComponent {
         g.setColor(Color.RED);
         LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();
         LinkedListNode currentNode = model.getLinkedListNodeContainer().getStartNode();
+        int i=0;
         do {
+            i++;
+            if(i%2==0){
+                g.setColor(Color.RED);
+            } else {
+                g.setColor(Color.GREEN);
+            }
             g.drawLine(
-                currentNode.getLine().getStart().getX(),
-                currentNode.getLine().getStart().getY(),
-                currentNode.getNext().getLine().getStart().getX(),
-                currentNode.getNext().getLine().getStart().getY()
+                currentNode.getPoint().getX(),
+                currentNode.getPoint().getY(),
+                currentNode.getNext().getPoint().getX(),
+                currentNode.getNext().getPoint().getY()
             );
             currentNode = model.getLinkedListNodeContainer().getNext();
         } while (! startNode.equals(currentNode));
