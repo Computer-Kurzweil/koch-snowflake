@@ -2,7 +2,6 @@ package org.woehlke.computer.kurzweil.kochsnowflake.model.koch;
 
 import lombok.*;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
 
 import java.io.Serializable;
 
@@ -11,7 +10,7 @@ import java.io.Serializable;
  * (C) 2006 - 2022 Thomas Woehlke
  * @author Thomas Woehlke
  *
- * @see LatticeVector
+ * @see LatticePoint
  *
  * @see <a href="https://github.com/Computer-Kurzweil/kochsnowflake">Github Repository</a>
  * @see <a href="https://java.woehlke.org/kochsnowflake/">Maven Project Reports</a>

@@ -195,6 +195,7 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
 
     public void start() {
         this.model.start();
+        this.controller.start();
         showMe();
     }
 }
