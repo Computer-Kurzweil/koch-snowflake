@@ -51,7 +51,7 @@ public class LinkedListNodeContainer implements Serializable {
         int x3 = paddingX + this.worldDimensions.getHeight() - padding;
 
         int myHeight01 = this.worldDimensions.getHeight() - (2*padding);
-        int myHeight02 = (myHeight01*4)/5;
+        int myHeight02 = (myHeight01/5)+((myHeight01*3)/5);
         int myHeight = (int)((Math.sqrt(3.0d)/2.0d) * (double) myHeight02);
 
         int y1 = padding + myHeight;
