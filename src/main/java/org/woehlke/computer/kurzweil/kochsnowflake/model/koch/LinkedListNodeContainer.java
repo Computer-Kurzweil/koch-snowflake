@@ -88,6 +88,7 @@ public class LinkedListNodeContainer implements Serializable {
             LatticePoint point1 = new LatticePoint(x1, y1);
             LatticePoint point2 = new LatticePoint(x2, y2);
             LatticePoint point3 = new LatticePoint(x3, y3);
+            point2 = LatticePoint.rotationMatrix(point1, point2);
             LinkedListNode node0 = this.currentNode;
             LinkedListNode node1 = new LinkedListNode();
             LinkedListNode node2 = new LinkedListNode();
@@ -104,4 +105,5 @@ public class LinkedListNodeContainer implements Serializable {
         } while (!this.currentNode.equals(startNode));
         return repaint;
     }
+
 }

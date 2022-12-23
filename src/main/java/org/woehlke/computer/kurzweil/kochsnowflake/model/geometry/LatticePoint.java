@@ -101,6 +101,10 @@ public class LatticePoint implements Serializable {
         );
     }
 
+    public static LatticePoint of(int x, int y) {
+        return new LatticePoint(x,y);
+    }
+
     public static LatticePoint of(LatticeDimension p) {
         return new LatticePoint(p.getWidth(), p.getHeight());
     }
@@ -130,5 +134,19 @@ public class LatticePoint implements Serializable {
         neighbourhood[7]= new LatticePoint((this.x+maxX+1) % maxX,this.y);
         neighbourhood[8]= new LatticePoint((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
         return neighbourhood;
+    }
+
+    /**
+     * @see <a href="https://en.wikipedia.org/wiki/Rotation_matrix/">Rotation matrix</a>
+     */
+    public static LatticePoint rotationMatrix(LatticePoint thisPoint, LatticePoint nextPoint){
+        LatticePoint delta = LatticePoint.delta(thisPoint, nextPoint);
+        int x = delta.getX();
+        int y = delta.getY();
+        int xx = (int)(x * Math.cos(45d) - y * Math.sin(45d));
+        int yy = (int)(x * Math.sin(45d) + y * Math.cos(45d));
+        LatticePoint result = new LatticePoint(xx,yy);
+        nextPoint.add(result);
+        return nextPoint;
     }
 }
