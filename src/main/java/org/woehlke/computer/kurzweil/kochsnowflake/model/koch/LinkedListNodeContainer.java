@@ -89,6 +89,7 @@ public class LinkedListNodeContainer implements Serializable {
             int y0 = this.currentNode.getPoint().getY();
             int x4 = this.currentNode.getNext().getPoint().getX();
             int y4 = this.currentNode.getNext().getPoint().getY();
+            // TODO: this parting is not correct:
             int x1 = x0 + ((x4 - x0) / 3);
             int x2 = x0 + ((x4 - x0) * 2 / 3);
             int x3 = x0 + ((x4 - x0) * 2 / 3);
