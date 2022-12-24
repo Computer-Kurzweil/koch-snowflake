@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>kochsnowflake</artifactId>
-    <version>3.0.8</version>
+    <version>3.0.9-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Koch Snowflake</name>
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</developerConnection>
         <url>https://github.com/Computer-Kurzweil/kochsnowflake/tree/${project.scm.tag}</url>
-        <tag>kochsnowflake-3.0.8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
