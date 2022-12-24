@@ -1,4 +1,4 @@
-# License
+# Copyright
 
 ```text
    Copyright 2018 Thomas Woehlke
