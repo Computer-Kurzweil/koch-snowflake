@@ -20,7 +20,7 @@ public class KochSnowflakeApplication {
 
     private KochSnowflakeApplication() {
         String conf = "application.yml";
-        String jarPath = "target/kochsnowflake.jar";
+        String jarPath = "target/koch-snowflake.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
         frame = new KochSnowflakeFrame(config);
     }
