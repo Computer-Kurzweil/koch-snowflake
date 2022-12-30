@@ -8,31 +8,31 @@
         <version>1.0.1</version>
     </parent>
 
-    <artifactId>kochsnowflake</artifactId>
+    <artifactId>koch-snowflake</artifactId>
     <version>3.0.9-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Koch Snowflake</name>
     <description>a fractal with self self-similarity</description>
-    <url>https://java.woehlke.org/kochsnowflake</url>
+    <url>https://java.woehlke.org/koch-snowflake</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
-        <connection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</connection>
-        <developerConnection>scm:git:git@github.com:Computer-Kurzweil/kochsnowflake.git</developerConnection>
-        <url>https://github.com/Computer-Kurzweil/kochsnowflake/tree/${project.scm.tag}</url>
+        <connection>scm:git:git@github.com:Computer-Kurzweil/koch-snowflake.git</connection>
+        <developerConnection>scm:git:git@github.com:Computer-Kurzweil/koch-snowflake.git</developerConnection>
+        <url>https://github.com/Computer-Kurzweil/koch-snowflake/tree/${project.scm.tag}</url>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
-        <url>https://github.com/Computer-Kurzweil/kochsnowflake/issues/</url>
+        <url>https://github.com/Computer-Kurzweil/koch-snowflake/issues/</url>
         <system>GitHub</system>
     </issueManagement>
 
     <distributionManagement>
         <site>
-            <id>kochsnowflake.local</id>
-            <url>file://${user.home}/public_html/java/kochsnowflake</url>
+            <id>koch-snowflake.local</id>
+            <url>file://${user.home}/public_html/java/koch-snowflake</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
