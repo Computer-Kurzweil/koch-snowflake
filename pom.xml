@@ -14,7 +14,7 @@
 
     <name>Koch Snowflake</name>
     <description>a fractal with self self-similarity</description>
-    <url>https://java.woehlke.org/koch-snowflake</url>
+    <url>https://java.woehlke.org/kurzweil/koch-snowflake</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
@@ -32,7 +32,7 @@
     <distributionManagement>
         <site>
             <id>koch-snowflake.local</id>
-            <url>file://${user.home}/public_html/java/koch-snowflake</url>
+            <url>file://${user.home}/public_html/java/kurzweil/koch-snowflake</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
