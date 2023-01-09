@@ -4,7 +4,11 @@ package org.woehlke.computer.kurzweil.kochsnowflake.model.turing;
 import lombok.extern.java.Log;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * (C) 2006 - 2023 Thomas Woehlke.
+ *
+ * @author Thomas Woehlke
+ */
 @Log
 public class TuringPositionsTest {
 

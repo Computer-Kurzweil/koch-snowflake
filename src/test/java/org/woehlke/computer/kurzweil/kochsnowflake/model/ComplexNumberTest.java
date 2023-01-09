@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * (C) 2006 - 2015 Thomas Woehlke.
+ * (C) 2006 - 2023 Thomas Woehlke.
  *
  * @author Thomas Woehlke
  * Created by tw on 24.08.15.
