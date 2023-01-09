@@ -6,6 +6,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimensi
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,7 @@ import java.io.Serializable;
 @Getter
 public class KochSnowflakeModel implements Serializable {
 
+    @Serial
     static final long serialVersionUID = 242L;
 
     private volatile KochSnowflakeFrame tab;
