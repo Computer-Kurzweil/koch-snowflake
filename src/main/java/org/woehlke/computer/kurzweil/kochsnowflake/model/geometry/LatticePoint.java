@@ -80,6 +80,12 @@ public class LatticePoint implements Serializable {
         return new LatticePoint(xx,yy);
     }
 
+    public static LatticePoint minus(LatticePoint thisLatticePoint, LatticePoint other ) {
+        int xx = thisLatticePoint.getX() - other.getX();
+        int yy = thisLatticePoint.getY() - other.getY();
+        return new LatticePoint(xx,yy);
+    }
+
     public LatticePoint delta(LatticePoint p) {
         int xx = p.getX() - this.getX();
         int yy = p.getY() - this.getY();
@@ -102,8 +108,10 @@ public class LatticePoint implements Serializable {
     }
 
     public LatticePoint copy() {
-        LatticePoint newLatticePoint = new LatticePoint( this.x, this.y );
-        return newLatticePoint;
+        return new LatticePoint(
+            this.getX(),
+            this.getY()
+        );
     }
 
     public LatticeDimension toLatticeDimension() {
@@ -149,16 +157,16 @@ public class LatticePoint implements Serializable {
     public LatticePoint[] getNewPoints(LatticePoint nextPoint){
         double oneThird = 1.0d / 3.0d;
         double twoThird = 2.0d / 3.0d;
-        LatticePoint delta = LatticePoint.delta(this, nextPoint);
-        LatticePoint deltaOneThird = delta.scalarMultiplied(oneThird);
-        LatticePoint deltaTwoThird = delta.scalarMultiplied(twoThird);
+        LatticePoint deltaVector = this.minus( nextPoint );
+        LatticePoint deltaOneThird = deltaVector.scalarMultiplied(oneThird);
+        LatticePoint deltaTwoThird = deltaVector.scalarMultiplied(twoThird);
         LatticePoint[] points = new LatticePoint[5];
         points[0] = this.copy();
-        points[1] = this.add(deltaOneThird);
-        //points[2] = deltaOneThird.rotationMatrix(deltaTwoThird);
-        points[2] = this.add(deltaTwoThird);
-        points[3] = this.add(deltaTwoThird);
+        points[1] = this.copy().add(deltaOneThird);
+        points[2] = this.copy().add(deltaTwoThird);
+        points[3] = this.copy().add(deltaTwoThird);
         points[4] = nextPoint.copy();
+        //points[2] = this.copy().add(deltaOneThird).rotationMatrix(deltaTwoThird);
         return points;
     }
 

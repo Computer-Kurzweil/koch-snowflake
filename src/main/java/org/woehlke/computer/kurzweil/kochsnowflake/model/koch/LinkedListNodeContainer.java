@@ -7,6 +7,8 @@ import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Koch Snowflake. A Fractal with self self-similarity.
@@ -31,7 +33,9 @@ public class LinkedListNodeContainer implements Serializable {
 
     private final LatticeDimension worldDimensions;
 
-    private LinkedListNode startNode;
+    private List<LinkedListNode> startNode = new ArrayList<>();
+
+    private LinkedListNode currentNode;
 
     public LinkedListNodeContainer(KochSnowflakeFrame tab, LatticeDimension worldDimensions){
         this.tab = tab;
@@ -63,33 +67,43 @@ public class LinkedListNodeContainer implements Serializable {
         leftBottomNode.setNext(rightBottomNode);
         rightBottomNode.setNext(upperCenterNode);
         upperCenterNode.setNext(leftBottomNode);
-        this.startNode = leftBottomNode;
+        this.startNode.add(leftBottomNode);
+        this.startNode.add(rightBottomNode);
+        this.startNode.add(upperCenterNode);
     }
 
     public void step() {
         System.out.println("step()");
-        LinkedListNode currentNode = this.startNode;
-        do {
-            LinkedListNode nodeNext = currentNode.getNext();
-            LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nodeNext.getPoint());
-            LinkedListNode node0 = currentNode;
-            node0.setPoint(newPoints[0]);
+
+        List<LinkedListNode> nextStep = new ArrayList<>();
+        for(LinkedListNode o : startNode){
+            LinkedListNode nextHelper = o.getNext();
+            LatticePoint[] newPoints =  o.getPoint().getNewPoints(o.getNext().getPoint());;
+            System.out.println(" - - - - ");
+            for(LatticePoint p: newPoints){
+                System.out.println(p.toString());
+            }
+            System.out.println(" - - - - ");
             LinkedListNode node1 = new LinkedListNode(newPoints[1]);
             LinkedListNode node2 = new LinkedListNode(newPoints[2]);
             LinkedListNode node3 = new LinkedListNode(newPoints[3]);
             LinkedListNode node4 = new LinkedListNode(newPoints[4]);
-            node0.setNext(node1);
+            o.setNext(node1);
             node1.setNext(node2);
             node2.setNext(node3);
             node3.setNext(node4);
-            node4.setNext(nodeNext);
-            currentNode = nodeNext;
-        } while (!currentNode.equals(this.startNode));
-        this.startNode = currentNode;
-        do {
-            System.out.println("step: "+currentNode.toString());
-            currentNode = currentNode.getNext();
-         } while (!currentNode.equals(this.startNode));
+            node4.setNext(nextHelper);
+            nextStep.add(o);
+            nextStep.add(node1);
+            nextStep.add(node2);
+            nextStep.add(node3);
+            nextStep.add(node4);
+            currentNode = nextHelper;
+        }
+        startNode = nextStep;
+        for(LinkedListNode o : startNode){
+            System.out.println("step: "+o.toString());
+         }
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 }

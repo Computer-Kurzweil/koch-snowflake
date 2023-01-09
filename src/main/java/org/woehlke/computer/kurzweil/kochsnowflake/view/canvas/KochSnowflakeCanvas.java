@@ -7,6 +7,7 @@ import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;
+import java.util.List;
 
 
 /**
@@ -65,11 +66,10 @@ public class KochSnowflakeCanvas extends JComponent  {
             this.model.getWorldDimensions().getHeight()
         );
         g.setColor(Color.RED);
-        LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();
-        LinkedListNode currentNode = startNode;
+        List<LinkedListNode> startNode = model.getLinkedListNodeContainer().getStartNode();
         int i=0;
-        do {
-            System.out.println("paint: " + currentNode.toString());
+        for(LinkedListNode o : startNode) {
+            System.out.println("paint: " + o.toString());
             switch (i%3){
                 case 0: g.setColor(Color.RED); break;
                 case 1: g.setColor(Color.GREEN); break;
@@ -77,13 +77,12 @@ public class KochSnowflakeCanvas extends JComponent  {
             }
             i++;
             g.drawLine(
-                currentNode.getPoint().getX(),
-                currentNode.getPoint().getY(),
-                currentNode.getNext().getPoint().getX(),
-                currentNode.getNext().getPoint().getY()
+                o.getPoint().getX(),
+                o.getPoint().getY(),
+                o.getNext().getPoint().getX(),
+                o.getNext().getPoint().getY()
             );
-            currentNode = currentNode.getNext();
-        } while (! startNode.equals(currentNode));
+        }
         System.out.println("-------------------------------");
     }
 
