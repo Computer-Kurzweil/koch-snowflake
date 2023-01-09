@@ -156,7 +156,7 @@ public class LatticePoint implements Serializable {
         points[2] = this.copy().plus(deltaTwoThird);
         points[3] = this.copy().plus(deltaTwoThird);
         points[4] = nextPoint.copy();
-        //points[2] = this.copy().add(deltaOneThird).rotationMatrix(deltaTwoThird);
+        points[2] = points[1].copy().rotationMatrix(points[3]);
         return points;
     }
 
