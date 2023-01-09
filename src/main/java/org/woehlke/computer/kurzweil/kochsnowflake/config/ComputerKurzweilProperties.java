@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeVector;
 
 import java.io.InputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -34,6 +35,7 @@ import java.util.jar.JarFile;
 @Setter
 public class ComputerKurzweilProperties implements Serializable {
 
+    @Serial
     final static long serialVersionUID = 242L;
 
     @Valid
@@ -931,6 +933,11 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
+    /**
+     * @param conf String
+     * @param jarPath String
+     * @return ComputerKurzweilProperties
+     */
     public static ComputerKurzweilProperties propertiesFactory(String conf, String jarPath){
         log.info("propertiesFactory");
         log.info("propertiesFactory conf: "+conf);
