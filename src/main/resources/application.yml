@@ -121,10 +121,8 @@ kochsnowflake:
       typeMoore: 'Moore'
       typeWoehlke: 'Woehlke'
   control:
-    #threadSleepTime: 3000
-    #maxIterations: 5
     threadSleepTime: 3000
-    maxIterations: 0
+    maxIterations: 6
 samegame:
   view:
     title: 'Same Game'
