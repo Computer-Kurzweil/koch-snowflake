@@ -50,9 +50,11 @@ public class KochSnowflakeCanvas extends JComponent  {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
-        super.setBackground(Color.DARK_GRAY);
+        //super.setBackground(Color.DARK_GRAY);
+        super.setBackground(Color.BLACK);
         int paddingX = (this.model.getWorldDimensions().getWidth()-this.model.getWorldDimensions().getHeight())/2;
-        g.setColor(Color.DARK_GRAY);
+        //g.setColor(Color.DARK_GRAY);
+        g.setColor(Color.BLACK);
         g.fillRect(
             0,0,
             this.model.getWorldDimensions().getWidth(),
