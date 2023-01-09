@@ -58,17 +58,7 @@ public class LatticePoint implements Serializable {
         y *= Integer.signum(y);
     }
 
-    public void killNagative() {
-        absoluteValue();
-    }
-
-    public void plus(LatticePoint p) {
-        this.x += p.getX();
-        this.y += p.getY();
-        absoluteValue();
-    }
-
-    public LatticePoint add(LatticePoint p) {
+    public LatticePoint plus(LatticePoint p) {
         int xx = this.getX() + p.getX();
         int yy = this.getY() + p.getY();
         return new LatticePoint(xx,yy);
@@ -95,10 +85,10 @@ public class LatticePoint implements Serializable {
     public LatticePoint scalarMultiplied(double scalar){
         double xx = Integer.valueOf(this.getX()).doubleValue();
         double yy = Integer.valueOf(this.getY()).doubleValue();
-        double xxx = Math.abs( xx * scalar);
-        double yyy = Math.abs( yy * scalar);
-        int ixxx = Double.valueOf( xxx ).intValue();
-        int iyyy = Double.valueOf( yyy ).intValue();
+        long xxx = Math.round( xx * scalar);
+        long yyy = Math.round( yy * scalar);
+        int ixxx = Long.valueOf( xxx ).intValue();
+        int iyyy = Long.valueOf( yyy ).intValue();
         return new LatticePoint(ixxx,iyyy);
     }
 
@@ -150,21 +140,21 @@ public class LatticePoint implements Serializable {
         int xx = Double.valueOf(xxx).intValue();
         int yy = Double.valueOf(yyy).intValue();
         LatticePoint rotatedDeltaVector = new LatticePoint(xx,yy);
-        LatticePoint rotatedNextPoint = this.add(rotatedDeltaVector);
+        LatticePoint rotatedNextPoint = this.plus(rotatedDeltaVector);
         return rotatedNextPoint;
     }
 
     public LatticePoint[] getNewPoints(LatticePoint nextPoint){
         double oneThird = 1.0d / 3.0d;
         double twoThird = 2.0d / 3.0d;
-        LatticePoint deltaVector = this.minus( nextPoint );
+        LatticePoint deltaVector = this.delta( nextPoint );
         LatticePoint deltaOneThird = deltaVector.scalarMultiplied(oneThird);
         LatticePoint deltaTwoThird = deltaVector.scalarMultiplied(twoThird);
         LatticePoint[] points = new LatticePoint[5];
         points[0] = this.copy();
-        points[1] = this.copy().add(deltaOneThird);
-        points[2] = this.copy().add(deltaTwoThird);
-        points[3] = this.copy().add(deltaTwoThird);
+        points[1] = this.copy().plus(deltaOneThird);
+        points[2] = this.copy().plus(deltaTwoThird);
+        points[3] = this.copy().plus(deltaTwoThird);
         points[4] = nextPoint.copy();
         //points[2] = this.copy().add(deltaOneThird).rotationMatrix(deltaTwoThird);
         return points;

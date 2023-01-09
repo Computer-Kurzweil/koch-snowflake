@@ -74,7 +74,6 @@ public class LinkedListNodeContainer implements Serializable {
 
     public void step() {
         System.out.println("step()");
-
         List<LinkedListNode> nextStep = new ArrayList<>();
         for(LinkedListNode o : startNode){
             LinkedListNode nextHelper = o.getNext();
