@@ -43,7 +43,7 @@ public class KochSnowflakeModel implements Serializable {
         this.linkedListNodeContainer = new LinkedListNodeContainer(tab, this.worldDimensions);
     }
 
-    public void step() {
+    public synchronized void step() {
          this.linkedListNodeContainer.step();
     }
 

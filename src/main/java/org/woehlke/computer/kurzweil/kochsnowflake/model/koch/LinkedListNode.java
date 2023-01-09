@@ -29,6 +29,7 @@ public class LinkedListNode implements Serializable {
 
     public LinkedListNode(LatticePoint point) {
         this.point = point;
+        this.next = null;
     }
 
     public LinkedListNode(LinkedListNode other) {

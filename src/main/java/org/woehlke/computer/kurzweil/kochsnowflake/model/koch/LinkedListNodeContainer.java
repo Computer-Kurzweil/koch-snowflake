@@ -33,8 +33,6 @@ public class LinkedListNodeContainer implements Serializable {
 
     private LinkedListNode startNode;
 
-    private LinkedListNode currentNode;
-
     public LinkedListNodeContainer(KochSnowflakeFrame tab, LatticeDimension worldDimensions){
         this.tab = tab;
         this.worldDimensions = worldDimensions;
@@ -66,27 +64,25 @@ public class LinkedListNodeContainer implements Serializable {
         rightBottomNode.setNext(upperCenterNode);
         upperCenterNode.setNext(leftBottomNode);
         this.startNode = leftBottomNode;
-        this.currentNode = this.startNode;
     }
 
-    public void step() {
+    public synchronized void step() {
         System.out.println("step");
-        this.currentNode = this.startNode;
+        LinkedListNode currentNode = this.startNode;
         do {
             LinkedListNode nodeNext = currentNode.getNext();
-            LinkedListNode[] node = new LinkedListNode[5];
             LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nodeNext.getPoint());
-            node[0] = new LinkedListNode(currentNode);
-            node[1] = new LinkedListNode(newPoints[1]);
-            node[2] = new LinkedListNode(newPoints[2]);
-            node[3] = new LinkedListNode(newPoints[3]);
-            node[4] = new LinkedListNode(nodeNext);
-            node[0].setNext(node[1]);
-            node[1].setNext(node[2]);
-            node[2].setNext(node[3]);
-            node[3].setNext(node[4]);
-            node[4].setNext(nodeNext.getNext());
-            currentNode = node[4].getNext();
+            LinkedListNode node0 = new LinkedListNode(currentNode);
+            LinkedListNode node1 = new LinkedListNode(newPoints[1]);
+            LinkedListNode node2 = new LinkedListNode(newPoints[2]);
+            LinkedListNode node3 = new LinkedListNode(newPoints[3]);
+            LinkedListNode node4 = new LinkedListNode(nodeNext);
+            node0.setNext(node1);
+            node1.setNext(node2);
+            node2.setNext(node3);
+            node3.setNext(node4);
+            node4.setNext(nodeNext.getNext());
+            currentNode = node4.getNext();
         } while (!currentNode.equals(startNode));
     }
 }

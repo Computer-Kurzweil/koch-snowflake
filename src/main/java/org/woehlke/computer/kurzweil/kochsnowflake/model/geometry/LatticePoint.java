@@ -102,14 +102,19 @@ public class LatticePoint implements Serializable {
     }
 
     public LatticePoint copy() {
-        return new LatticePoint(this);
+        LatticePoint newLatticePoint = new LatticePoint( this.x, this.y );
+        return newLatticePoint;
     }
 
-    public LatticeDimension toLatticePoint() {
+    public LatticeDimension toLatticeDimension() {
         return new LatticeDimension(
             this.getX(),
             this.getY()
         );
+    }
+
+    public static LatticePoint of(LatticePoint p) {
+        return new LatticePoint(p.getX(),p.getY());
     }
 
     public static LatticePoint of(int x, int y) {
@@ -150,9 +155,10 @@ public class LatticePoint implements Serializable {
         LatticePoint[] points = new LatticePoint[5];
         points[0] = this.copy();
         points[1] = this.add(deltaOneThird);
-        points[2] = deltaOneThird.rotationMatrix(deltaTwoThird);
+        //points[2] = deltaOneThird.rotationMatrix(deltaTwoThird);
+        points[2] = this.add(deltaTwoThird);
         points[3] = this.add(deltaTwoThird);
-        points[4] = nextPoint;
+        points[4] = nextPoint.copy();
         return points;
     }
 
