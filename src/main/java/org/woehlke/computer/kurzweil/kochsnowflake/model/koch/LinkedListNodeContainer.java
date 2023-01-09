@@ -73,16 +73,10 @@ public class LinkedListNodeContainer implements Serializable {
     }
 
     public void step() {
-        System.out.println("step()");
         List<LinkedListNode> nextStep = new ArrayList<>();
         for(LinkedListNode o : startNode){
             LinkedListNode nextHelper = o.getNext();
             LatticePoint[] newPoints =  o.getPoint().getNewPoints(o.getNext().getPoint());;
-            System.out.println(" - - - - ");
-            for(LatticePoint p: newPoints){
-                System.out.println(p.toString());
-            }
-            System.out.println(" - - - - ");
             LinkedListNode node1 = new LinkedListNode(newPoints[1]);
             LinkedListNode node2 = new LinkedListNode(newPoints[2]);
             LinkedListNode node3 = new LinkedListNode(newPoints[3]);
@@ -100,9 +94,5 @@ public class LinkedListNodeContainer implements Serializable {
             currentNode = nextHelper;
         }
         startNode = nextStep;
-        for(LinkedListNode o : startNode){
-            System.out.println("step: "+o.toString());
-         }
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 }
