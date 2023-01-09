@@ -18,8 +18,6 @@ import java.util.Objects;
  */
 @Getter
 @Setter
-@ToString
-@AllArgsConstructor
 @NoArgsConstructor
 public class LinkedListNode implements Serializable {
 
@@ -33,6 +31,11 @@ public class LinkedListNode implements Serializable {
         this.point = point;
     }
 
+    public LinkedListNode(LinkedListNode other) {
+        this.point = new LatticePoint(other.getPoint());
+        this.next = other.getNext();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,5 +46,13 @@ public class LinkedListNode implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getPoint());
+    }
+
+    @Override
+    public String toString() {
+        return "LinkedListNode{" +
+            "point=" + this.point.toString() +
+            "next.point=" +  this.next.getPoint().toString() +
+            '}';
     }
 }

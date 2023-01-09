@@ -147,14 +147,13 @@ public class LatticePoint implements Serializable {
         LatticePoint delta = LatticePoint.delta(this, nextPoint);
         LatticePoint deltaOneThird = delta.scalarMultiplied(oneThird);
         LatticePoint deltaTwoThird = delta.scalarMultiplied(twoThird);
-        LatticePoint[] point = new LatticePoint[5];
-        point[0] = this.copy();
-        point[1] = this.add(deltaOneThird);
-        point[2] = this.add(deltaTwoThird);
-        point[3] = this.add(deltaTwoThird);
-        point[4] = nextPoint;
-        point[2] = point[1].rotationMatrix(point[2]);
-        return point;
+        LatticePoint[] points = new LatticePoint[5];
+        points[0] = this.copy();
+        points[1] = this.add(deltaOneThird);
+        points[2] = deltaOneThird.rotationMatrix(deltaTwoThird);
+        points[3] = this.add(deltaTwoThird);
+        points[4] = nextPoint;
+        return points;
     }
 
 }

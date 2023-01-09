@@ -74,19 +74,19 @@ public class LinkedListNodeContainer implements Serializable {
         this.currentNode = this.startNode;
         do {
             LinkedListNode nodeNext = currentNode.getNext();
-            LatticePoint nextPoint = nodeNext.getPoint();
-            LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nextPoint);
             LinkedListNode[] node = new LinkedListNode[5];
-            node[0] = currentNode;
+            LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nodeNext.getPoint());
+            node[0] = new LinkedListNode(currentNode);
             node[1] = new LinkedListNode(newPoints[1]);
             node[2] = new LinkedListNode(newPoints[2]);
             node[3] = new LinkedListNode(newPoints[3]);
-            node[4] = nodeNext;
+            node[4] = new LinkedListNode(nodeNext);
             node[0].setNext(node[1]);
             node[1].setNext(node[2]);
             node[2].setNext(node[3]);
             node[3].setNext(node[4]);
-            currentNode = nodeNext;
+            node[4].setNext(nodeNext.getNext());
+            currentNode = node[4].getNext();
         } while (!currentNode.equals(startNode));
     }
 }
