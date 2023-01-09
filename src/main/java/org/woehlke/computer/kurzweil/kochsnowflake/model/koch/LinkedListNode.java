@@ -29,6 +29,10 @@ public class LinkedListNode implements Serializable {
 
     private LinkedListNode next;
 
+    public LinkedListNode(LatticePoint point) {
+        this.point = point;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

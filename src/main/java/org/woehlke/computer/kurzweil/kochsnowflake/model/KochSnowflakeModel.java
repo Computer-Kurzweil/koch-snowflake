@@ -43,12 +43,8 @@ public class KochSnowflakeModel implements Serializable {
         this.linkedListNodeContainer = new LinkedListNodeContainer(tab, this.worldDimensions);
     }
 
-    public synchronized boolean step() {
-        return this.linkedListNodeContainer.step();
-    }
-
-    public void click(LatticePoint c) {
-
+    public void step() {
+         this.linkedListNodeContainer.step();
     }
 
     public void start(){

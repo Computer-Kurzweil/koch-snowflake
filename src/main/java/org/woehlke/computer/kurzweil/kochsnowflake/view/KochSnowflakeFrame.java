@@ -106,8 +106,8 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        LatticePoint c = new LatticePoint(e.getX(), e.getY());
-        this.model.click(c);
+        this.model.step();
+        this.repaint();
         showMe();
     }
 
@@ -198,4 +198,5 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
         this.controller.start();
         showMe();
     }
+
 }

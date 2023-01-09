@@ -26,7 +26,7 @@ import java.io.Serial;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class KochSnowflakeCanvas extends JComponent {
+public class KochSnowflakeCanvas extends JComponent  {
 
     @Serial
     private final static long serialVersionUID = 242L;
@@ -68,12 +68,12 @@ public class KochSnowflakeCanvas extends JComponent {
         LinkedListNode currentNode = model.getLinkedListNodeContainer().getStartNode();
         int i=0;
         do {
-            i++;
-            if(i%2==0){
-                g.setColor(Color.RED);
-            } else {
-                g.setColor(Color.GREEN);
+            switch (i%3){
+                case 0: g.setColor(Color.RED); break;
+                case 1: g.setColor(Color.GREEN); break;
+                case 2: g.setColor(Color.BLUE); break;
             }
+            i++;
             g.drawLine(
                 currentNode.getPoint().getX(),
                 currentNode.getPoint().getY(),
@@ -87,5 +87,4 @@ public class KochSnowflakeCanvas extends JComponent {
     public void update(Graphics g) {
         paint(g);
     }
-
 }

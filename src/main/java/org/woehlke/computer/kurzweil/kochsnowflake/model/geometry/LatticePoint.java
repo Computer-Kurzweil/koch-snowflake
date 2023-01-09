@@ -69,27 +69,31 @@ public class LatticePoint implements Serializable {
     }
 
     public LatticePoint add(LatticePoint p) {
-        int x = this.getX() + p.getX();
-        int y = this.getY() + p.getY();
-        return new LatticePoint(x,y);
+        int xx = this.getX() + p.getX();
+        int yy = this.getY() + p.getY();
+        return new LatticePoint(xx,yy);
     }
 
     public LatticePoint minus(LatticePoint p) {
-        int x = this.getX() - p.getX();
-        int y = this.getY() - p.getY();
-        return new LatticePoint(x,y);
+        int xx = this.getX() - p.getX();
+        int yy = this.getY() - p.getY();
+        return new LatticePoint(xx,yy);
     }
 
     public LatticePoint delta(LatticePoint p) {
-        int x = p.getX() - this.x;
-        int y = p.getY() - this.y;
-        return new LatticePoint(x,y);
+        int xx = p.getX() - this.getX();
+        int yy = p.getY() - this.getY();
+        return new LatticePoint(xx,yy);
     }
 
     public LatticePoint scalarMultiplied(double scalar){
-        int x = (int)(this.getX()*scalar);
-        int y = (int)(this.getY()*scalar);
-        return new LatticePoint(x,y);
+        double xx = Integer.valueOf(this.getX()).doubleValue();
+        double yy = Integer.valueOf(this.getY()).doubleValue();
+        double xxx = Math.abs( xx * scalar);
+        double yyy = Math.abs( yy * scalar);
+        int ixxx = Double.valueOf( xxx ).intValue();
+        int iyyy = Double.valueOf( yyy ).intValue();
+        return new LatticePoint(ixxx,iyyy);
     }
 
     public void normalize(LatticePoint p) {
@@ -124,30 +128,30 @@ public class LatticePoint implements Serializable {
      * @see <a href="https://en.wikipedia.org/wiki/Rotation_matrix/">Rotation matrix</a>
      */
     public LatticePoint rotationMatrix(LatticePoint nextPoint){
-        LatticePoint delta = this.delta(nextPoint);
-        double angle = -45.0;
-        //System.out.print("thisPoint: "+this.toString());
-        //System.out.print(" nextPoint: "+nextPoint.toString());
-        double x = delta.getX();
-        double y = delta.getY();
-        int xx = (int)(x * Math.cos(angle) - y * Math.sin(angle));
-        int yy = (int)(x * Math.sin(angle) + y * Math.cos(angle));
-        LatticePoint delta2 = new LatticePoint(xx,yy);
-        //System.out.print(" --> delta2: "+delta2.toString());
-        LatticePoint result = this.add(delta2);
-        //System.out.println(" --> result: "+result.toString());
-        return result;
+        LatticePoint deltaVector = this.delta(nextPoint);
+        double angle = 45.0d;
+        double dx = Integer.valueOf(deltaVector.getX()).doubleValue();
+        double dy = Integer.valueOf(deltaVector.getY()).doubleValue();
+        double xxx = dx * Math.cos(angle) - dy * Math.sin(angle);
+        double yyy = dx * Math.sin(angle) + dy * Math.cos(angle);
+        int xx = Double.valueOf(xxx).intValue();
+        int yy = Double.valueOf(yyy).intValue();
+        LatticePoint rotatedDeltaVector = new LatticePoint(xx,yy);
+        LatticePoint rotatedNextPoint = this.add(rotatedDeltaVector);
+        return rotatedNextPoint;
     }
 
-    public LatticePoint[] getNewParts(LatticePoint nextPoint){
+    public LatticePoint[] getNewPoints(LatticePoint nextPoint){
+        double oneThird = 1.0d / 3.0d;
+        double twoThird = 2.0d / 3.0d;
         LatticePoint delta = LatticePoint.delta(this, nextPoint);
-        LatticePoint delta1 = delta.scalarMultiplied(1.0/3.0);
-        LatticePoint delta2 = delta.scalarMultiplied(2.0/3.0);
+        LatticePoint deltaOneThird = delta.scalarMultiplied(oneThird);
+        LatticePoint deltaTwoThird = delta.scalarMultiplied(twoThird);
         LatticePoint[] point = new LatticePoint[5];
         point[0] = this.copy();
-        point[1] = this.add(delta1);
-        point[2] = this.add(delta2);
-        point[3] = this.add(delta2);
+        point[1] = this.add(deltaOneThird);
+        point[2] = this.add(deltaTwoThird);
+        point[3] = this.add(deltaTwoThird);
         point[4] = nextPoint;
         point[2] = point[1].rotationMatrix(point[2]);
         return point;
