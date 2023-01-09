@@ -46,7 +46,6 @@ public class KochSnowflakeCanvas extends JComponent  {
     }
 
     public void paint(Graphics g) {
-        System.out.println("-------------------------------");
         System.out.println("paint()");
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);

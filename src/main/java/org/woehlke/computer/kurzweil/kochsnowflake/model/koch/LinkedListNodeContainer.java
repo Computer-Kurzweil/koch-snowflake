@@ -67,14 +67,13 @@ public class LinkedListNodeContainer implements Serializable {
     }
 
     public void step() {
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("step()");
-        LinkedListNode startNodeCopy = this.startNode.copy();
-        LinkedListNode currentNode = startNodeCopy;
+        LinkedListNode currentNode = this.startNode;
         do {
             LinkedListNode nodeNext = currentNode.getNext();
             LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nodeNext.getPoint());
-            LinkedListNode node0 = new LinkedListNode(newPoints[0]);
+            LinkedListNode node0 = currentNode;
+            node0.setPoint(newPoints[0]);
             LinkedListNode node1 = new LinkedListNode(newPoints[1]);
             LinkedListNode node2 = new LinkedListNode(newPoints[2]);
             LinkedListNode node3 = new LinkedListNode(newPoints[3]);
@@ -85,12 +84,12 @@ public class LinkedListNodeContainer implements Serializable {
             node3.setNext(node4);
             node4.setNext(nodeNext);
             currentNode = nodeNext;
-        } while (!currentNode.equals(startNodeCopy));
+        } while (!currentNode.equals(this.startNode));
+        this.startNode = currentNode;
         do {
             System.out.println("step: "+currentNode.toString());
             currentNode = currentNode.getNext();
-         } while (!currentNode.equals(startNodeCopy));
-        this.startNode = startNodeCopy;
+         } while (!currentNode.equals(this.startNode));
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 }
