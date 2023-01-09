@@ -68,10 +68,11 @@ public class KochSnowflakeCanvas extends JComponent  {
         List<LinkedListNode> startNode = model.getLinkedListNodeContainer().getStartNode();
         int i=0;
         for(LinkedListNode o : startNode) {
-            switch (i%3){
+            switch (i%4){
                 case 0: g.setColor(Color.RED); break;
                 case 1: g.setColor(Color.GREEN); break;
                 case 2: g.setColor(Color.BLUE); break;
+                case 3: g.setColor(Color.YELLOW); break;
             }
             i++;
             g.drawLine(
