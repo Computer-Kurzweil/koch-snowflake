@@ -66,23 +66,31 @@ public class LinkedListNodeContainer implements Serializable {
         this.startNode = leftBottomNode;
     }
 
-    public synchronized void step() {
-        System.out.println("step");
-        LinkedListNode currentNode = this.startNode;
+    public void step() {
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("step()");
+        LinkedListNode startNodeCopy = this.startNode.copy();
+        LinkedListNode currentNode = startNodeCopy;
         do {
             LinkedListNode nodeNext = currentNode.getNext();
             LatticePoint[] newPoints = currentNode.getPoint().getNewPoints(nodeNext.getPoint());
-            LinkedListNode node0 = new LinkedListNode(currentNode);
+            LinkedListNode node0 = new LinkedListNode(newPoints[0]);
             LinkedListNode node1 = new LinkedListNode(newPoints[1]);
             LinkedListNode node2 = new LinkedListNode(newPoints[2]);
             LinkedListNode node3 = new LinkedListNode(newPoints[3]);
-            LinkedListNode node4 = new LinkedListNode(nodeNext);
+            LinkedListNode node4 = new LinkedListNode(newPoints[4]);
             node0.setNext(node1);
             node1.setNext(node2);
             node2.setNext(node3);
             node3.setNext(node4);
-            node4.setNext(nodeNext.getNext());
-            currentNode = node4.getNext();
-        } while (!currentNode.equals(startNode));
+            node4.setNext(nodeNext);
+            currentNode = nodeNext;
+        } while (!currentNode.equals(startNodeCopy));
+        do {
+            System.out.println("step: "+currentNode.toString());
+            currentNode = currentNode.getNext();
+         } while (!currentNode.equals(startNodeCopy));
+        this.startNode = startNodeCopy;
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 }

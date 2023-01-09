@@ -33,8 +33,13 @@ public class LinkedListNode implements Serializable {
     }
 
     public LinkedListNode(LinkedListNode other) {
-        this.point = new LatticePoint(other.getPoint());
+        this.point = other.getPoint().copy();
         this.next = other.getNext();
+    }
+
+    public LinkedListNode copy() {
+        LinkedListNode copy = new LinkedListNode(this);
+        return copy;
     }
 
     @Override
@@ -56,4 +61,6 @@ public class LinkedListNode implements Serializable {
             "next.point=" +  this.next.getPoint().toString() +
             '}';
     }
+
+
 }

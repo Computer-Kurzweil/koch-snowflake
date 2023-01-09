@@ -46,6 +46,8 @@ public class KochSnowflakeCanvas extends JComponent  {
     }
 
     public void paint(Graphics g) {
+        System.out.println("-------------------------------");
+        System.out.println("paint()");
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
@@ -65,9 +67,10 @@ public class KochSnowflakeCanvas extends JComponent  {
         );
         g.setColor(Color.RED);
         LinkedListNode startNode = model.getLinkedListNodeContainer().getStartNode();
-        LinkedListNode currentNode = model.getLinkedListNodeContainer().getStartNode();
+        LinkedListNode currentNode = startNode;
         int i=0;
         do {
+            System.out.println("paint: " + currentNode.toString());
             switch (i%3){
                 case 0: g.setColor(Color.RED); break;
                 case 1: g.setColor(Color.GREEN); break;
@@ -82,6 +85,7 @@ public class KochSnowflakeCanvas extends JComponent  {
             );
             currentNode = currentNode.getNext();
         } while (! startNode.equals(currentNode));
+        System.out.println("-------------------------------");
     }
 
     public void update(Graphics g) {
