@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.kochsnowflake.model;
 import lombok.Getter;
 import org.woehlke.computer.kurzweil.kochsnowflake.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticeDimension;
-import org.woehlke.computer.kurzweil.kochsnowflake.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.kochsnowflake.model.koch.LinkedListNodeContainer;
 import org.woehlke.computer.kurzweil.kochsnowflake.view.KochSnowflakeFrame;
 
@@ -35,10 +34,9 @@ public class KochSnowflakeModel implements Serializable {
 
     public KochSnowflakeModel(KochSnowflakeFrame tab) {
         this.tab = tab;
-        ComputerKurzweilProperties config = tab.getConfig();
-        int scale = config.getKochsnowflake().getView().getScale();
-        int width = scale * config.getKochsnowflake().getView().getWidth();
-        int height = scale * config.getKochsnowflake().getView().getHeight();
+        int scale = tab.getConfig().getKochsnowflake().getView().getScale();
+        int width = scale * tab.getConfig().getKochsnowflake().getView().getWidth();
+        int height = scale * tab.getConfig().getKochsnowflake().getView().getHeight();
         this.worldDimensions = LatticeDimension.of(width,height);
         this.linkedListNodeContainer = new LinkedListNodeContainer(tab, this.worldDimensions);
     }

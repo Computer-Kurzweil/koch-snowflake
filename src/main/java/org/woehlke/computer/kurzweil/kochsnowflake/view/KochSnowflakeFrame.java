@@ -107,6 +107,7 @@ public class KochSnowflakeFrame extends JFrame implements ImageObserver,
     @Override
     public void mouseClicked(MouseEvent e) {
         this.model.step();
+        this.canvas.repaint();
         this.repaint();
         showMe();
     }
