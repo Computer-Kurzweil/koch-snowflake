@@ -41,6 +41,13 @@ a finite area, but has an infinite perimeter.
 
 ![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen003.png)
 
+### each successive stage is formed by adding outward bends to each side of the previous stage
+
+![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen004.png)
+### each successive stage is formed by adding outward bends to each side of the previous stage
+
+![Computing the Area outside the Mandelbrot Set](src/main/resources/img/screen005.png)
+
 
 ### Repositories
 * [Github Repository](https://github.com/Computer-Kurzweil/koch-snowflake)
