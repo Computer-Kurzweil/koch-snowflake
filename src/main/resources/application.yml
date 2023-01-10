@@ -116,7 +116,7 @@ kochsnowflake:
     height: 234
     scale: 3
   control:
-    threadSleepTime: 3000
+    threadSleepTime: 300000
     maxIterations: 6
 samegame:
   view:
